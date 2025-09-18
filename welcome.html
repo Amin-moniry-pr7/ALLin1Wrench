@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALLin1Wrench</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+        :root { --primary-red: #dc143c; --dark-red: #8b0000; --primary-white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Rajdhani', sans-serif; background: linear-gradient(rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.03)), #000; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+        .corner-frame { position: absolute; width: 90px; height: 90px; pointer-events: none; opacity: 0; animation: fadeInCorner 2s ease-out forwards; }
+        .corner-frame::before, .corner-frame::after { content: ''; position: absolute; background-color: transparent; animation: cornerGlow 4s ease-in-out infinite; }
+        @keyframes cornerGlow { 0%, 100% { filter: drop-shadow(0 0 4px var(--primary-red)) drop-shadow(0 0 6px var(--dark-red)); } 50% { filter: drop-shadow(0 0 8px var(--primary-red)) drop-shadow(0 0 12px var(--dark-red)); } }
+        .corner-frame.top-left { top: 30px; left: 30px; animation-delay: 1.5s; }
+        .corner-frame.top-right { top: 30px; right: 30px; transform: rotate(90deg); animation-delay: 1.7s; }
+        .corner-frame.bottom-left { bottom: 30px; left: 30px; transform: rotate(-90deg); animation-delay: 1.9s; }
+        .corner-frame.bottom-right { bottom: 30px; right: 30px; transform: rotate(180deg); animation-delay: 2.1s; }
+        .corner-frame::before { top: 0; left: 0; width: 100%; height: 3px; background-color: var(--primary-red); -webkit-mask-image: repeating-linear-gradient(to right, black 0, black 20px, transparent 20px, transparent 25px, black 25px, black 30px, transparent 30px, transparent 35px); mask-image: repeating-linear-gradient(to right, black 0, black 20px, transparent 20px, transparent 25px, black 25px, black 30px, transparent 30px, transparent 35px); transform-origin: left; animation: drawLineHorizontal 1s ease-out forwards 2.2s, cornerGlow 4s ease-in-out infinite 2.2s; }
+        .corner-frame::after { top: 0; left: 0; width: 3px; height: 100%; background-color: var(--primary-red); -webkit-mask-image: repeating-linear-gradient(to bottom, black 0, black 20px, transparent 20px, transparent 25px, black 25px, black 30px, transparent 30px, transparent 35px); mask-image: repeating-linear-gradient(to bottom, black 0, black 20px, transparent 20px, transparent 25px, black 25px, black 30px, transparent 30px, transparent 35px); transform-origin: top; animation: drawLineVertical 1s ease-out forwards 2.2s, cornerGlow 4s ease-in-out infinite 2.2s; }
+        @keyframes fadeInCorner { to { opacity: 0.9; } }
+        @keyframes drawLineHorizontal { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+        @keyframes drawLineVertical { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+        .particles { position: absolute; width: 100%; height: 100%; overflow: hidden; z-index: 2; }
+        .particle { position: absolute; background: var(--primary-red); border-radius: 50%; pointer-events: none; }
+        .particle:nth-child(odd) { background: var(--primary-white); }
+        .particle:nth-child(3n) { background: var(--dark-red); }
+        .container { display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; z-index: 10; animation: containerEntrance 2s ease-out; }
+        @keyframes containerEntrance { 0% { opacity: 0; transform: scale(0.5) rotateY(180deg); } 100% { opacity: 1; transform: scale(1) rotateY(0deg); } }
+        .logo-container { margin-bottom: 40px; animation: logoFloat 3s ease-in-out infinite; position: relative; }
+        @keyframes logoFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        .logo { width: 200px; height: 200px; border-radius: 0; object-fit: cover; transition: all 0.5s ease; position: relative; filter: drop-shadow(0 0 30px rgba(220, 20, 60, 0.5)); animation: logoGlow 4s ease-in-out infinite; }
+        @keyframes logoGlow { 0%, 100% { filter: drop-shadow(0 0 30px rgba(220, 20, 60, 0.5)) brightness(1); } 50% { filter: drop-shadow(0 0 50px rgba(220, 20, 60, 0.8)) brightness(1.2); } }
+        .logo:hover { transform: scale(1.1) rotateZ(5deg); filter: drop-shadow(0 0 60px rgba(220, 20, 60, 1)); }
+        .brand-name { font-family: 'Orbitron', monospace; font-size: 4em; font-weight: 900; margin: 30px 0; display: inline-block; direction: ltr; }
+        .brand-name .letter { display: inline-block; opacity: 0; background: linear-gradient(45deg, var(--primary-white), var(--primary-red), var(--dark-red), var(--primary-white)); background-size: 400% 400%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: letterDrop 1.5s ease-out forwards, colorShift 3s ease-in-out infinite; transform-origin: center bottom; }
+        .brand-name .letter.white { background: none; -webkit-text-fill-color: var(--primary-white); animation-name: letterDrop; text-shadow: 0 0 5px var(--primary-white), 0 0 10px var(--primary-red); }
+        @keyframes letterDrop { 0% { opacity: 0; transform: translateY(-100px) rotateX(90deg) scale(0); } 60% { opacity: 1; transform: translateY(10px) rotateX(0deg) scale(1.1); } 100% { opacity: 1; transform: translateY(0px) rotateX(0deg) scale(1); } }
+        @keyframes colorShift { 0%, 100% { background-position: 0% 50%; filter: brightness(1); } 50% { background-position: 100% 50%; filter: brightness(1.5); } }
+        .brand-name .letter:nth-child(1) { animation-delay: 0.5s, 0.5s; } .brand-name .letter:nth-child(2) { animation-delay: 0.6s; } .brand-name .letter:nth-child(3) { animation-delay: 0.7s; } .brand-name .letter:nth-child(4) { animation-delay: 0.8s, 0.8s; } .brand-name .letter:nth-child(5) { animation-delay: 0.9s, 0.9s; } .brand-name .letter:nth-child(6) { animation-delay: 1.0s, 1.0s; } .brand-name .letter:nth-child(7) { animation-delay: 1.1s; } .brand-name .letter:nth-child(8) { animation-delay: 1.2s, 1.2s; } .brand-name .letter:nth-child(9) { animation-delay: 1.3s, 1.3s; } .brand-name .letter:nth-child(10) { animation-delay: 1.4s, 1.4s; } .brand-name .letter:nth-child(11) { animation-delay: 1.5s, 1.5s; } .brand-name .letter:nth-child(12) { animation-delay: 1.6s, 1.6s; }
+        .enter-button { display: inline-block; margin-top: 30px; padding: 15px 40px; font-family: 'Orbitron', monospace; font-size: 1.3em; font-weight: 700; color: var(--primary-white); text-decoration: none; text-transform: uppercase; border: 3px solid var(--primary-red); background: transparent; transition: all 0.4s ease-in-out; text-shadow: 0 0 10px var(--primary-red); box-shadow: 0 0 20px rgba(220, 20, 60, 0.5), inset 0 0 15px rgba(220, 20, 60, 0.4); position: relative; overflow: hidden; opacity: 0; animation: fadeInButton 1.5s ease-out forwards 2.2s; border-radius: 50px; }
+        .enter-button:hover { background: var(--primary-red); color: #000; box-shadow: 0 0 40px var(--primary-red); text-shadow: none; }
+        .enter-button::before { content: ''; position: absolute; top: 0; left: -150%; width: 50%; height: 100%; background: linear-gradient(to right, transparent 0%, var(--primary-red) 50%, transparent 100%); opacity: 0.6; transform: skewX(-25deg); transition: left 0.7s ease-in-out; }
+        .enter-button:hover::before { left: 150%; }
+        @keyframes fadeInButton { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .credit-text { position: absolute; bottom: 30px; left: 0; right: 0; text-align: center; font-family: 'Rajdhani', sans-serif; font-size: 1.2em; font-weight: 500; color: rgba(255, 255, 255, 0.7); text-shadow: 0 0 5px rgba(220, 20, 60, 0.3); letter-spacing: 2px; opacity: 0; animation: fadeInCredit 2s ease-out forwards 2.5s; direction: ltr; }
+        @keyframes fadeInCredit { to { opacity: 1; } }
+        @media (max-width: 768px) { .brand-name { font-size: 2.5em; } .logo { width: 150px; height: 150px; } .corner-frame { width: 60px; height: 60px; top: 20px; left: 20px; } .corner-frame.top-right { right: 20px; left: auto; } .corner-frame.bottom-left { bottom: 20px; top: auto; } .corner-frame.bottom-right { bottom: 20px; right: 20px; top: auto; left: auto; } .enter-button { font-size: 1.1em; padding: 12px 30px; margin-top: 30px; } .credit-text { font-size: 1em; bottom: 20px; } }
+        @media (max-width: 480px) { .brand-name { font-size: 2em; margin: 15px 0; } .logo { width: 100px; height: 100px; } .logo-container { margin-bottom: 20px; } .enter-button { font-size: 0.9em; padding: 8px 20px; margin-top: 25px; } .credit-text { font-size: 0.6em; letter-spacing: 1px; } .corner-frame { width: 45px; height: 45px; top: 15px; left: 15px; } .corner-frame.top-right { right: 15px; left: auto; } .corner-frame.bottom-left { bottom: 15px; top: auto; } .corner-frame.bottom-right { bottom: 15px; right: 15px; top: auto; left: auto; } }
+    </style>
+</head>
+<body>
+    <div class="corner-frame top-left"></div>
+    <div class="corner-frame top-right"></div>
+    <div class="corner-frame bottom-left"></div>
+    <div class="corner-frame bottom-right"></div>
+    <div class="particles" id="particles"></div>
+    <div class="container">
+        <div class="logo-container">
+            <img src="pics/Logo.png" alt="Logo" class="logo" onerror="this.src='Logo.png';">
+        </div>
+        <h1 class="brand-name">
+            <span class="letter">A</span><span class="letter white">L</span><span class="letter white">L</span><span class="letter">i</span><span class="letter">n</span><span class="letter">1</span><span class="letter white">W</span><span class="letter">r</span><span class="letter">e</span><span class="letter">n</span><span class="letter">c</span><span class="letter">h</span>
+        </h1>
+        <a href="main.html" class="enter-button">Enter</a>
+    </div>
+    <p class="credit-text">Created by Amin.adc7</p>
+
+    <script>
+        // --- SCRIPT FOR CLICK SOUNDS (COMPLETE AND FINAL) ---
+        document.addEventListener('DOMContentLoaded', function() {
+            let audioContext;
+            let clickBuffer;
+
+            const base64Sound = 'UklGRkX/AP9XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVE/AP9/f35+fn5+fn5+f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f3-';
+
+            // This function creates the audio context and decodes the sound.
+            // It's designed to run only once on the first click anywhere on the page.
+            const initAudioOnClick = () => {
+                if (audioContext) { // If it's already created, do nothing.
+                    return;
+                }
+                try {
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    const binaryString = atob(base64Sound);
+                    const len = binaryString.length;
+                    const bytes = new Uint8Array(len);
+                    for (let i = 0; i < len; i++) {
+                        bytes[i] = binaryString.charCodeAt(i);
+                    }
+
+                    audioContext.decodeAudioData(bytes.buffer, (buffer) => {
+                        clickBuffer = buffer;
+                        console.log("Audio unlocked and ready.");
+                    }, (err) => {
+                        console.error("Failed to decode audio data:", err);
+                    });
+                } catch (e) {
+                    console.error("Web Audio API is not supported in this browser:", e);
+                }
+            };
+
+            // This function plays the sound if it's ready.
+            const playClickSound = () => {
+                if (!clickBuffer) {
+                    console.warn("Audio buffer is not ready yet. Click anywhere on the page first.");
+                    return;
+                }
+                // In case the context got suspended again.
+                if (audioContext.state === 'suspended') {
+                    audioContext.resume();
+                }
+                const source = audioContext.createBufferSource();
+                source.buffer = clickBuffer;
+                const gainNode = audioContext.createGain();
+                gainNode.gain.value = 0.6;
+                source.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                source.start(0);
+            };
+
+            // Listener to unlock audio on the very first click.
+            document.body.addEventListener('click', initAudioOnClick, { once: true });
+
+            // Listener to play audio on button clicks.
+            document.addEventListener('click', (ev) => {
+                const target = ev.target.closest('button, a[href], input[type="button"], input[type="submit"], [role="button"], .enter-button');
+                if (target) {
+                    playClickSound();
+                }
+            }, true);
+        });
+
+        // --- SCRIPT FOR PARTICLES (UNCHANGED) ---
+        function createParticles() { const particlesContainer = document.getElementById('particles'); if (!particlesContainer) return; const particleCount = 100; for (let i = 0; i < particleCount; i++) { createParticle(particlesContainer); } }
+        function createParticle(container) { const particle = document.createElement('div'); particle.className = 'particle'; const size = Math.random() * 4 + 1; const x = Math.random() * window.innerWidth; const y = Math.random() * window.innerHeight; const duration = Math.random() * 20 + 10; const delay = Math.random() * 5; particle.style.width = `${size}px`; particle.style.height = `${size}px`; particle.style.left = `${x}px`; particle.style.top = `${y}px`; const randomX = Math.random() * 200 - 100; const animationName = `particleFloat_${Math.round(Math.random() * 10000)}`; const keyframes = `@keyframes ${animationName} { 0% { transform: translate(0, 0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translate(${randomX}px, -100vh) rotate(360deg); opacity: 0; } }`; try { const styleSheet = document.styleSheets[0]; styleSheet.insertRule(keyframes, styleSheet.cssRules.length); particle.style.animation = `${animationName} ${duration}s linear infinite ${delay}s`; container.appendChild(particle); setTimeout(() => { particle.remove(); createParticle(container); }, (duration + delay) * 1000); } catch (e) { console.warn("Could not insert CSS rule for particle animation.", e); } }
+        window.addEventListener('load', createParticles);
+        document.addEventListener('mousemove', (e) => { if (Math.random() < 0.1) { const trail = document.createElement('div'); trail.style.position = 'absolute'; trail.style.left = e.clientX + 'px'; trail.style.top = e.clientY + 'px'; trail.style.width = '4px'; trail.style.height = '4px'; trail.style.background = 'var(--primary-red)'; trail.style.borderRadius = '50%'; trail.style.pointerEvents = 'none'; trail.style.zIndex = '5'; const trailKeyframes = `@keyframes trailFade { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(0); } }`; const styleEl = document.createElement('style'); styleEl.innerHTML = trailKeyframes; document.head.appendChild(styleEl); trail.style.animation = 'trailFade 1s ease-out forwards'; document.body.appendChild(trail); setTimeout(() => { trail.remove(); styleEl.remove(); }, 1000); } });
+    </script>
+</body>
+</html>
