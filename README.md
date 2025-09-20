@@ -1,117 +1,226 @@
-🔧 ALLin1Wrench - Interactive Portfolio Website
+# ALLin1Wrench Portfolio
+
 <div align="center">
-<img src="pics/Logo.png" alt="ALLin1Wrench Logo" width="200"/>
-
-🌟 A cutting-edge, fully responsive portfolio showcasing a journey through technology 🌟
-
+  <img src="pics/Logo.png" alt="ALLin1Wrench Logo" width="200" height="200">
+  
+  [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-nc-nd/4.0/)
+  [![Version](https://img.shields.io/badge/Version-7.0-red.svg)](https://github.com/Amin-moniry-pr7/allin1wrench)
 </div>
 
-Live Demo
-Visit the live website: https://allin1wrench.ir
+## 🌟 Overview
 
-📋 Overview
-ALLin1Wrench is a personal portfolio website that combines stunning visual design with interactive storytelling. It features an immersive timeline of my technical journey, from foundational skills to advanced expertise in AI and networking. The entire experience is designed with a mobile-first approach, ensuring a seamless and engaging visit on any device.
+ALLin1Wrench is a modern, interactive personal portfolio website showcasing the professional journey, skills, and expertise of **Amin Moniry**. The site features stunning animations, responsive design, and an immersive user experience that highlights proficiency in web development, AI, networking, and more.
 
-✨ Key Features
-🎨 Interactive Timeline: Journey through skill development with animated paths and stations.
+### ✨ Key Features
 
-🌌 Dynamic Starfield Background: Mesmerizing particle animations powered by HTML5 Canvas.
+- **Interactive Timeline**: Visual journey through skills and expertise
+- **Animated Background**: Dynamic starfield animation with particle effects  
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **Multi-Section Layout**: Comprehensive information architecture
+- **Professional Animations**: Smooth transitions and engaging visual effects
+- **Skills Showcase**: Interactive percentage displays and visual indicators
 
-📱 Fully Responsive Design: A mobile-first approach ensures a flawless experience on desktops, tablets, and smartphones.
+## 🚀 Live Demo
 
-🔧 Custom Mobile Navigation: A unique "wrench" icon reveals a clean, animated menu for mobile users.
+Visit the live website: [allin1wrench.ir](https://allin1wrench.ir)
 
-🚀 Professional Page Preloaders: Smooth preloader with the site's logo prevents content flashing and improves user experience.
+## 📁 Project Structure
 
-🎯 Smooth Animations: Seamless transitions and engaging micro-interactions across the site.
+```
+ALLin1Wrench/
+├── index.html                 # Landing page with animated entrance
+├── html/
+│   ├── background.html        # Animated starfield background
+│   ├── header.html           # Navigation header component
+│   ├── footer.html           # Footer with social links
+│   ├── main.html            # Skills timeline page
+│   └── main_2.html          # Services and contact page
+├── css/
+│   ├── main.css             # Timeline and skills styling
+│   ├── main_2.css           # Services page styling
+│   ├── header.css           # Header component styles
+│   └── footer.css           # Footer component styles
+├── js/
+│   ├── main.js              # Timeline functionality
+│   ├── main_2.js            # Semicircle navigation
+│   └── footer.js            # Footer animations
+├── pics/                    # Images and visual assets
+├── LICENSE                  # Creative Commons license
+└── README.md               # Project documentation
+```
 
-🔄 Smart Semi-circular Navigation: A unique scroll-based navigation system that intelligently tucks away on mobile to save space.
+## 🛠️ Technologies Used
 
-⚡ Performance Optimized: Fast loading with efficient rendering and no external libraries.
+### Frontend
+- **HTML5** - Semantic markup and structure
+- **CSS3** - Advanced styling, animations, and responsive design
+- **Vanilla JavaScript** - Interactive functionality and animations
+- **SVG** - Scalable vector graphics for paths and icons
 
-🛠️ Tech Stack
-Technology
+### Design & Animations
+- **CSS Keyframes** - Complex animation sequences
+- **Intersection Observer API** - Scroll-triggered animations
+- **CSS Grid & Flexbox** - Modern layout techniques
+- **Custom Properties** - CSS variables for theming
 
-Purpose
+### Fonts & Icons
+- **Google Fonts** (Orbitron, Poppins, Vazirmatn)
+- **Font Awesome** - Social media and UI icons
+- **Custom SVG Icons** - Unique visual elements
 
-HTML5
+## 🎨 Design Highlights
 
-Structure & Markup
+### Color Palette
+- **Primary Red**: `#dc143c` - Brand color and accents
+- **Dark Red**: `#8b0000` - Gradients and shadows
+- **White**: `#ffffff` - Text and contrast elements
+- **Dark Backgrounds**: Various black and gray tones
 
-CSS3
+### Animation Features
+- **Particle Systems** - Floating elements throughout the site
+- **Path Animations** - SVG path drawing on scroll
+- **Text Animations** - Typewriter effects and character reveals
+- **Scroll-Triggered Effects** - Progressive skill percentage displays
+- **Hover Interactions** - Enhanced user feedback
 
-Styling & Animations
+## 📱 Responsive Design
 
-JavaScript
+The website is fully responsive across all device sizes:
 
-Interactivity & Logic
+- **Desktop** (1200px+): Full feature set with all animations
+- **Tablet** (768px-1199px): Adapted layouts with optimized interactions
+- **Mobile** (320px-767px): Simplified navigation and touch-optimized interface
 
-Canvas API
+### Mobile Optimizations
+- Collapsible navigation menu
+- Touch-friendly interface elements
+- Optimized image sizes and loading
+- Simplified animations for performance
 
-Background Animations
+## 🚀 Getting Started
 
-📁 Project Structure
-.
-├── .gitignore
-├── CNAME
-├── css
-│   ├── footer.css
-│   ├── header.css
-│   ├── main.css
-│   └── main_2.css
-├── html
-│   ├── background.html
-│   ├── footer.html
-│   ├── header.html
-│   ├── main.html
-│   └── main_2.html
-├── index.html
-├── js
-│   ├── footer.js
-│   ├── main.js
-│   └── main_2.js
-├── LICENSE
-├── pics
-│   ├── About Me.png
-│   ├── Connect With Me.png
-│   ├── Logo.png
-│   ├── My Skills & Expertise.png
-│   ├── The Roadmap.png
-│   └── What I Offer.png
-├── README
-├── README.md
-├── robots.txt
-└── sitemap.xml
+### Prerequisites
+- Modern web browser (Chrome, Firefox, Safari, Edge)
+- Web server (for local development)
 
-📱 Mobile Responsiveness
-The website has been meticulously crafted to provide an exceptional mobile experience.
+### Installation
 
-Adaptive Layouts: Every section, from the header to the footer, dynamically adjusts to fit the screen size perfectly.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Amin-moniry-pr7/allin1wrench.git
+   ```
 
-Custom Mobile Menu: The desktop buttons are replaced by a sleek, custom-designed "wrench" icon that toggles a dropdown menu, saving valuable screen real estate.
+2. **Navigate to project directory**
+   ```bash
+   cd allin1wrench
+   ```
 
-Optimized Timeline: The skill timeline on mobile uses a clean, vertical layout, removing the complex desktop animations for better readability and performance.
+3. **Serve the files**
+   
+   Using Python:
+   ```bash
+   python -m http.server 8000
+   ```
+   
+   Using Node.js (with live-server):
+   ```bash
+   npx live-server
+   ```
 
-Smart Navigation: The semi-circular navigation on the second page intelligently hides when not in use on mobile, providing an uncluttered view of the content.
+4. **Open in browser**
+   ```
+   http://localhost:8000
+   ```
 
-Touch-Friendly: All interactive elements are designed with appropriate sizing and spacing for easy touch interaction.
+## 📖 Usage Guide
 
-📄 License
-This project is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. See the LICENSE file for details.
+### Navigation
+- **Landing Page**: Animated entrance with brand introduction
+- **Skills Timeline**: Scroll through interactive skill progression
+- **Services Section**: Semicircle navigation for different content areas
+- **Footer**: Contact information and social links
 
-👨‍💻 About the Creator
-Amin Moniry - Full-Stack Developer & AI Enthusiast
+### Interactive Elements
+- **Skill Percentages**: Animate when scrolled into view
+- **Path Animations**: SVG paths draw as you scroll
+- **Hover Effects**: Enhanced feedback on interactive elements
+- **Mobile Menu**: Touch-friendly navigation toggle
 
-🌐 Website: allin1wrench.ir
+## 🎯 Skills Showcased
 
-📱 Telegram: @adc7amin7adc
+### Technical Expertise
+- **Programming**: Python, JavaScript, HTML5, CSS3
+- **Frameworks**: Django, PyTorch
+- **AI/ML**: Artificial Intelligence, Machine Learning, Deep Learning
+- **Networking**: Cisco CCNA, Network Administration
+- **Systems**: Linux, Windows Server Administration
+- **Tools**: Docker, n8n, ngrok
 
-🐙 GitHub: @Amin-moniry-pr7
+### Professional Skills
+- **Web Development**: Full-stack development capabilities
+- **Content Creation**: YouTube, Telegram channels
+- **Video Editing**: Professional content production
+- **Languages**: Persian, English, Turkish, Korean
 
-📺 YouTube: @adc7aminoid7adc
+## 🌐 Browser Support
+
+| Browser | Version | Support |
+|---------|---------|---------|
+| Chrome  | 80+     | ✅ Full |
+| Firefox | 75+     | ✅ Full |
+| Safari  | 13+     | ✅ Full |
+| Edge    | 80+     | ✅ Full |
+
+## 📄 License
+
+This project is licensed under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License**.
+
+**You are free to:**
+- **Share** — copy and redistribute the material in any medium or format
+
+**Under the following terms:**
+- **Attribution** — You must give appropriate credit
+- **NonCommercial** — You may not use the material for commercial purposes
+- **NoDerivatives** — You may not distribute modified material
+
+See the [LICENSE](LICENSE) file for details or visit [CC BY-NC-ND 4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+## 👨‍💻 About the Developer
+
+**Amin Moniry** is a passionate developer and content creator specializing in:
+- Full-stack web development
+- Artificial Intelligence and Machine Learning
+- Network administration and security
+- Content creation and digital media
+
+### Connect With Me
+- 📱 **Telegram**: [@adc7amin7adc](https://t.me/adc7amin7adc)
+- 🎥 **YouTube**: [@adc7aminoid7adc](https://www.youtube.com/@adc7aminoid7adc)
+- 💻 **GitHub**: [Amin-moniry-pr7](https://github.com/Amin-moniry-pr7)
+
+## 🚀 Future Roadmap
+
+- [ ] Enhanced AI-powered features
+- [ ] Additional interactive tools
+- [ ] Performance optimizations
+- [ ] Accessibility improvements
+- [ ] Progressive Web App capabilities
+- [ ] Multi-language support
+
+## 🤝 Contributing
+
+This is a personal portfolio project. While direct contributions aren't accepted due to the license terms, feedback and suggestions are always welcome!
+
+## 💫 Acknowledgments
+
+- Thanks to the open-source community for inspiration
+- Google Fonts for typography resources
+- Font Awesome for iconography
+- All supporters and visitors of the project
+
+---
 
 <div align="center">
-<strong>🔧 Built with passion, powered by innovation 🔧</strong>
-<br/>
-<em>© 2025 ALLin1Wrench by Amin Moniry. All Rights Reserved.</em>
+  <strong>Made with ❤️ by Amin Moniry</strong><br>
+  <sub>© 2025 ALLin1Wrench. All Rights Reserved.</sub>
 </div>
