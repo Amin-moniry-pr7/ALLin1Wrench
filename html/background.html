@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starfield Background</title>
+    <style>
+
+    body { margin: 0; background-color: #000; overflow: hidden; }
+    canvas { display: block; }
+
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let stars = [];
+const numStars = 1500;
+const max_depth = 32;
+
+class Star {
+    constructor() {
+        this.x = (Math.random() - 0.5) * canvas.width;
+        this.y = (Math.random() - 0.5) * canvas.height;
+        this.z = Math.random() * max_depth;
+        this.color = Math.random() > 0.2 ? '#dc143c' : '#ffffff';
+    }
+
+    update() {
+        this.z -= 0.2;
+        if (this.z <= 0) {
+            this.x = (Math.random() - 0.5) * canvas.width;
+            this.y = (Math.random() - 0.5) * canvas.height;
+            this.z = max_depth;
+        }
+    }
+
+    draw() {
+        const k = 128 / this.z;
+        const px = this.x * k + canvas.width / 2;
+        const py = this.y * k + canvas.height / 2;
+        if (px >= 0 && px <= canvas.width && py >= 0 && py <= canvas.height) {
+            const size = (1 - this.z / max_depth) * 4;
+            ctx.beginPath();
+            ctx.arc(px, py, size, 0, Math.PI * 2);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+        }
+    }
+}
+
+function init() {
+    stars = [];
+    for (let i = 0; i < numStars; i++) {
+        stars.push(new Star());
+    }
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+    ctx.fillStyle = 'rgba(0,0,0,0.4)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    for (const star of stars) {
+        star.update();
+        star.draw();
+    }
+}
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    init();
+});
+
+init();
+animate();
+
+    </script>
+
+</body>
+</html>

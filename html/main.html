@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amin Moniry | My Journey & Skills</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        /* --- Preloader Styles --- */
+        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 0.75s ease, visibility 0.75s ease; }
+        #preloader.fade-out { opacity: 0; visibility: hidden; }
+        .loader-logo { width: 150px; height: 150px; animation: pulse-glow 2s ease-in-out infinite; }
+        @keyframes pulse-glow { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(220, 20, 60, 0.4)); } 50% { transform: scale(1.1); filter: drop-shadow(0 0 30px rgba(220, 20, 60, 0.8)); } }
+    </style>
+</head>
+<body>
+    <!-- Preloader Start -->
+    <div id="preloader">
+        <img src="../pics/Logo.png" alt="Loading..." class="loader-logo" onerror="this.style.display='none'">
+    </div>
+    <!-- Preloader End -->
+
+    <iframe src="background.html" class="background-iframe" title="Animated Background"></iframe>
+    <div id="header-container"></div>
+    <header class="intro-header">
+        <h1>Welcome to My Portfolio</h1>
+        <p>A showcase of my journey, skills, and passion for technology.</p>
+        <div class="scroll-down-icon"></div>
+    </header>
+    <div class="timeline-wrapper">
+        <svg id="master-path-container" preserveAspectRatio="none" viewBox="0 0 1400 13500">
+            <path id="path-html" d="M 700 300 C 100 800, 1300 1200, 700 1600 S 100 2000, 140 2200"></path>
+            <path id="path-backend" d="M 140 2200 C 800 2600, 200 3500, 700 3800 S 1200 4000, 1260 4200"></path>
+            <path id="path-fullstack" d="M 1260 4200 C 1300 4800, 200 5200, 700 5800 S 100 6000, 140 6300"></path>
+            <path id="path-ai" d="M 140 6300 C 200 7000, 1200 7500, 600 8000 S 1300 8300, 1260 8500"></path>
+            <path id="path-python" d="M 1260 8500 C 1000 9000, 400 9500, 1000 10000 S 100 10500, 140 10700"></path>
+            <path id="path-network" d="M 140 10700 C 200 11400, 1200 11800, 700 12800"></path>
+        </svg>
+        <div class="station" id="base" data-station-color="var(--color-base)"><svg class="node" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><div class="card"><h2>Linux, Cisco & Windows <span class="percentage" data-percentage="84">0%</span></h2><p>Comprehensive experience with Linux environments, Cisco networking devices, and Windows systems. Skilled in configuring, managing, and securing these platforms to ensure stability, efficiency, and seamless integration.</p></div></div>
+        <div class="station" id="html" data-path-id="path-html" data-station-color="var(--color-html)"><svg class="node" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><div class="card"><h2>Front-End Development <span class="percentage" data-percentage="60">0%</span></h2><p>Proficient in the core technologies of the web. Capable of building structured, visually appealing, and interactive websites that are responsive and user-friendly, ensuring a smooth user experience across all devices.</p></div></div>
+        <div class="station" id="backend" data-path-id="path-backend" data-station-color="var(--color-backend)"><svg class="node" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><div class="card"><h2>Back-End Development <span class="percentage" data-percentage="40">0%</span></h2><p>Hands-on expertise with modern Python frameworks for server-side development. Experienced in designing APIs, managing databases, and implementing scalable and secure back-end systems.</p></div></div>
+        <div class="station" id="fullstack" data-path-id="path-fullstack" data-station-color="var(--color-fullstack)"><svg class="node" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><div class="card"><h2>Full-Stack Web Development <span class="percentage" data-percentage="85">0%</span></h2><p>Ability to develop complete web solutions from concept to deployment. Skilled in integrating front-end interfaces with back-end logic to deliver reliable, high-quality, and efficient digital products.</p></div></div>
+        <div class="station" id="ai" data-path-id="path-ai" data-station-color="var(--color-ai)"><svg class="node" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><div class="card"><h2>Automation & Artificial Intelligence <span class="percentage" data-percentage="90">0%</span></h2><p>Expertise in combining workflow automation with AI-powered solutions. Capable of designing intelligent processes that optimize efficiency, reduce manual effort, and solve complex challenges effectively.</p></div></div>
+        <div class="station" id="python" data-path-id="path-python" data-station-color="var(--color-python)"><svg class="node" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><div class="card"><h2>Advanced Python Programming <span class="percentage" data-percentage="95">0%</span></h2><p>Deep knowledge of Python and its wide applications, including data analysis, artificial intelligence, web development, and automation. Able to adapt the language to build innovative, scalable, and intelligent software solutions.</p></div></div>
+        <div class="station" id="network" data-path-id="path-network" data-station-color="var(--color-network)"><svg class="node" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><div class="card"><h2>Computer Networking <span class="percentage" data-percentage="99">0%</span></h2><p>Strong expertise in networking concepts and practices, from configuration and troubleshooting to advanced routing, switching, and security. Skilled in designing and maintaining secure, reliable, and high-performance network infrastructures.</p></div></div>
+    </div>
+    <div class="section-separator"><span class="separator-star">✮</span></div>
+    <div id="next-section" style="position:relative; width:100vw; height:100vh;"><iframe src="main_2.html" title="Next Section" style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"></iframe></div>
+    <div id="footer-container" style="position:relative; width:100vw; height:100vh;"><iframe src="footer.html" title="Footer" style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"></iframe></div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // --- Preloader Script ---
+        window.onload = function() {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.classList.add('fade-out');
+            }
+        };
+    </script>
+</body>
+</html>

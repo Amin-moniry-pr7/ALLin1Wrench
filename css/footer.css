@@ -1,0 +1,70 @@
+@keyframes blink { 50% { background-color: transparent; } }
+#animated-title { position: relative; }
+#animated-title::after { content: ''; position: absolute; width: 8px; height: 100%; background: #ef4444; right: -12px; top: 0; animation: blink 0.75s step-end infinite; }
+@keyframes pulse-glow { 0%, 100% { opacity: 0.4; text-shadow: 0 0 8px rgba(239, 68, 68, 0.2); } 50% { opacity: 0.55; text-shadow: 0 0 15px rgba(239, 68, 68, 0.4), 0 0 25px rgba(239, 68, 68, 0.3); } }
+.pulse-text { animation: pulse-glow 5s ease-in-out infinite; }
+.icon-link { transition: transform 0.2s ease-in-out, color 0.2s ease-in-out; }
+.icon-link:hover { transform: scale(1.25) rotate(-5deg); }
+.animated-border-glow { background: linear-gradient(90deg, transparent, #ef4444, transparent); background-size: 40% 100%; background-repeat: no-repeat; animation: shimmer 4s linear infinite; }
+@keyframes shimmer { 0% { background-position: -100% 0; } 100% { background-position: 200% 0; } }
+
+/* --- Media Query for Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    body {
+        align-items: center; /* Vertically center the footer again */
+    }
+
+    footer.text-white {
+        padding-top: 1rem;
+        padding-bottom: 2rem; /* Restore some bottom padding */
+    }
+
+    .pulse-text {
+        font-size: 10rem !important;
+    }
+
+    #animated-title {
+        font-size: 2rem !important;
+    }
+
+    .h-24 {
+        height: 3rem !important;
+    }
+
+    #animated-title::after {
+        width: 3px;
+        right: -6px;
+    }
+
+    .space-y-6 {
+        gap: 0.5rem; /* Reduce vertical gap for closer items */
+    }
+
+    .space-x-16 {
+        gap: 0.000001rem; /* Closer text links */
+    }
+
+    .text-3xl {
+        font-size: 0.8rem !important;
+    }
+
+    .space-x-14 {
+        gap: 0.000001rem; /* Closer icon links */
+    }
+
+    .text-5xl {
+        font-size: 1.5rem !important;
+    }
+
+    img[alt="ALLin1Wrench Logo"] {
+        height: 3rem !important;
+        margin-top: 0.8rem !important;
+    }
+
+    .text-xl {
+        font-size: 0.7rem !important;
+        padding-top: 1.2rem !important;
+        color: rgba(255, 255, 255, 0.6) !important;
+    }
+}
+
