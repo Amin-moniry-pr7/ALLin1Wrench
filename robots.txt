@@ -1,0 +1,6 @@
+# Tell all search engines that they are welcome to crawl the entire site.
+User-agent: *
+Allow: /
+
+# Provide the location of the sitemap for all search engines.
+Sitemap: https://allin1wrench.ir/sitemap.xml
