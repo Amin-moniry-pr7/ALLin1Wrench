@@ -1,18 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;404;700&display=swap');
-
-:root {
-    --text-color: #f5f5f5; --text-secondary-color: #b3b3b3; --font-family-en: 'Poppins', sans-serif;
-    --color-base: #999; --color-html: #ff5722; --color-backend: #00bcd4; --color-fullstack: #3f51b5;
-    --color-ai: #9c27b0; --color-python: #ffc107; --color-network: #f44336;
-}
+:root { --text-color: #f5f5f5; --text-secondary-color: #b3b3b3; --font-family-en: 'Poppins', sans-serif; --color-base: #999; --color-html: #ff5722; --color-backend: #00bcd4; --color-fullstack: #3f51b5; --color-ai: #9c27b0; --color-python: #ffc107; --color-network: #f44336; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    overflow-x: hidden; /* Fix for horizontal overflow bug */
-    background-color: #000; /* Fix for overscroll bounce effect */
-}
+html { -ms-overflow-style: none; scrollbar-width: none; overflow-x: hidden; background-color: #000; }
 html::-webkit-scrollbar { display: none; }
 body { background-color: transparent; color: var(--text-color); font-family: var(--font-family-en); overflow-x: hidden; }
 .background-iframe { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: none; z-index: -1; }
@@ -27,16 +17,32 @@ body { background-color: transparent; color: var(--text-color); font-family: var
 .timeline-wrapper { position: relative; width: 100%; height: 13500px; }
 #master-path-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; overflow: visible; }
 #master-path-container path { fill: none; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; transition: stroke-dashoffset 0.2s linear; stroke-dasharray: 30 15; }
-#path-html { stroke: var(--color-html); } #path-backend { stroke: var(--color-backend); } #path-fullstack { stroke: var(--color-fullstack); } #path-ai { stroke: var(--color-ai); } #path-python { stroke: var(--color-python); } #path-network { stroke: var(--color-network); }
+#path-html { stroke: var(--color-html); }
+#path-backend { stroke: var(--color-backend); }
+#path-fullstack { stroke: var(--color-fullstack); }
+#path-ai { stroke: var(--color-ai); }
+#path-python { stroke: var(--color-python); }
+#path-network { stroke: var(--color-network); }
 .station { position: absolute; width: 81%; z-index: 10; opacity: 0; transform: translateY(30px) scale(0.95); transition: opacity 1s ease, transform 1s ease; }
 .station.visible { opacity: 1; transform: translateY(0) scale(1.03); }
 #base { top: 300px; left: 50%; transform: translateX(-50%); text-align: center; width: 40%; }
-#html { top: 2200px; left: 10%; width: 30%; } #backend { top: 4200px; right: 10%; width: 30%; } #fullstack { top: 6300px; left: 10%; width: 30%; } #ai { top: 8500px; right: 10%; width: 30%; } #python { top: 10700px; left: 10%; width: 30%; } #network { top: 12800px; left: 50%; transform: translateX(-50%); text-align: center; width: 40%; }
+#html { top: 2200px; left: 10%; width: 30%; }
+#backend { top: 4200px; right: 10%; width: 30%; }
+#fullstack { top: 6300px; left: 10%; width: 30%; }
+#ai { top: 8500px; right: 10%; width: 30%; }
+#python { top: 10700px; left: 10%; width: 30%; }
+#network { top: 12800px; left: 50%; transform: translateX(-50%); text-align: center; width: 40%; }
 .station[style*="right"] { text-align: right; }
 .card { position: relative; padding: 36px 48px; background: rgba(28, 28, 28, 0.7); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 15px 40px rgba(0,0,0,0.7); overflow: hidden; }
 .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: 16px; padding: 2px; background: linear-gradient(135deg, var(--station-color), transparent, transparent); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; z-index: -1; }
 .node { position: absolute; width: 48px; height: 48px; z-index: 11; transform: scale(1); transition: transform 0.5s ease, filter 0.5s ease; fill: var(--station-color); filter: drop-shadow(0 0 8px var(--station-color)); }
-#base .node { top: -24px; left: 50%; transform: translateX(-50%); } #html .node { top: -24px; left: -24px; } #backend .node { top: -24px; right: -24px; } #fullstack .node { top: -24px; left: -24px; } #ai .node { top: -24px; right: -24px; } #python .node { top: -24px; left: -24px; } #network .node { top: -24px; left: 50%; transform: translateX(-50%); }
+#base .node { top: -24px; left: 50%; transform: translateX(-50%); }
+#html .node { top: -24px; left: -24px; }
+#backend .node { top: -24px; right: -24px; }
+#fullstack .node { top: -24px; left: -24px; }
+#ai .node { top: -24px; right: -24px; }
+#python .node { top: -24px; left: -24px; }
+#network .node { top: -24px; left: 50%; transform: translateX(-50%); }
 .station.visible .node { transform: scale(1.2) rotate(10deg); filter: drop-shadow(0 0 16px var(--station-color)); }
 .station[id="network"].visible .node, .station[id="base"].visible .node { transform: translateX(-50%) scale(1.2) rotate(10deg); }
 .card h2 { font-size: 4.06rem; margin-bottom: 10px; color: var(--text-color); position: relative; z-index: 1; text-align: center; padding-top: 0; line-height: 1.2; }
@@ -48,131 +54,30 @@ body { background-color: transparent; color: var(--text-color); font-family: var
 .separator-star { font-size: 2rem; color: #dc143c; margin: 0 30px; text-shadow: 0 0 20px #dc143c, 0 0 30px #ff1744; animation: pulseStar 3s ease-in-out infinite; }
 @keyframes pulseStar { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.2); opacity: 1; } }
 @keyframes fadeInSeparator { to { opacity: 1; transform: translateY(0); } }
-
-/* --- Media Query for Mobile Responsiveness --- */
 @media (max-width: 768px) {
-    /* --- Intro Header Section --- */
-    .intro-header {
-        height: 80vh;
-        padding: 0 15px;
-    }
-    .intro-header h1 {
-        font-size: 2.5rem;
-    }
-    .intro-header p {
-        font-size: 1.2rem;
-    }
-    .scroll-down-icon {
-        width: 23px;
-        height: 38px;
-        border-width: 2px;
-        border-radius: 15px;
-    }
-    .scroll-down-icon::before {
-        width: 4px;
-        height: 8px;
-        top: 8px;
-    }
-    @keyframes scroll-anim {
-        0% { opacity: 1; top: 8px; }
-        100% { opacity: 0; top: 20px; }
-    }
-
-    /* --- Timeline Section --- */
-    #master-path-container {
-        display: none; /* Hide SVG path on mobile */
-    }
-
-    .timeline-wrapper {
-        height: auto; /* New height based on content */
-        padding-bottom: 150px; /* Add space at the end */
-    }
-
-    /* Reset all station elements for a new static layout */
-    .station {
-        position: relative !important;
-        opacity: 0; /* Keep initial state for observer */
-        transform: translateY(30px) scale(0.95) !important;
-        transition: opacity 1s ease, transform 1s ease !important;
-        margin: 0 auto; /* Center all cards horizontally */
-        margin-top: 150px; /* Vertical spacing between cards */
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-    }
-
-    .station.visible {
-        opacity: 1;
-        transform: translateY(0) scale(1) !important;
-    }
-
-    /* First card has less top margin */
-    #base {
-        margin-top: 80px;
-    }
-
-    /* Define widths for all cards */
-    #base, #network {
-        width: 90% !important;
-        max-width: 500px;
-        text-align: center !important;
-    }
-    #html, #backend, #fullstack, #ai, #python {
-        width: 90% !important;
-        max-width: 500px;
-    }
-
-    /* Alternate text alignment for side cards */
-    #html, #fullstack, #python {
-        text-align: left !important;
-    }
-    #backend, #ai {
-        text-align: right !important;
-    }
-
-
-    .card {
-        padding: 18px 20px;
-    }
-    .card h2 {
-        font-size: 1.3rem;
-    }
-    .card h2 .percentage {
-        font-size: 1.1rem;
-    }
-    .card p {
-        font-size: 0.8rem;
-        line-height: 1.4;
-        margin-top: 8px;
-        text-align: center;
-        display: -webkit-box;
-        -webkit-line-clamp: 3; /* A bit more text */
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-    /* Adjust node positions */
-    .node {
-        width: 36px;
-        height: 36px;
-        top: -18px;
-    }
-    #base .node, #network .node {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    #html .node, #fullstack .node, #python .node {
-        left: -18px;
-    }
-    #backend .node, #ai .node {
-        right: -18px;
-    }
-
-    .station.visible .node {
-        transform: scale(1.2) rotate(10deg);
-    }
-    .station[id="network"].visible .node, .station[id="base"].visible .node {
-        transform: translateX(-50%) scale(1.2) rotate(10deg);
-    }
+    .intro-header { height: 80vh; padding: 0 15px; }
+    .intro-header h1 { font-size: 2.5rem; }
+    .intro-header p { font-size: 1.2rem; }
+    .scroll-down-icon { width: 23px; height: 38px; border-width: 2px; border-radius: 15px; }
+    .scroll-down-icon::before { width: 4px; height: 8px; top: 8px; }
+    @keyframes scroll-anim { 0% { opacity: 1; top: 8px; } 100% { opacity: 0; top: 20px; } }
+    #master-path-container { display: none; }
+    .timeline-wrapper { height: auto; padding-bottom: 150px; }
+    .station { position: relative !important; opacity: 0; transform: translateY(30px) scale(0.95) !important; transition: opacity 1s ease, transform 1s ease !important; margin: 0 auto; margin-top: 150px; top: auto !important; left: auto !important; right: auto !important; }
+    .station.visible { opacity: 1; transform: translateY(0) scale(1) !important; }
+    #base { margin-top: 80px; }
+    #base, #network { width: 90% !important; max-width: 500px; text-align: center !important; }
+    #html, #backend, #fullstack, #ai, #python { width: 90% !important; max-width: 500px; }
+    #html, #fullstack, #python { text-align: left !important; }
+    #backend, #ai { text-align: right !important; }
+    .card { padding: 18px 20px; }
+    .card h2 { font-size: 1.3rem; }
+    .card h2 .percentage { font-size: 1.1rem; }
+    .card p { font-size: 0.8rem; line-height: 1.4; margin-top: 8px; text-align: center; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .node { width: 36px; height: 36px; top: -18px; }
+    #base .node, #network .node { left: 50%; transform: translateX(-50%); }
+    #html .node, #fullstack .node, #python .node { left: -18px; }
+    #backend .node, #ai .node { right: -18px; }
+    .station.visible .node { transform: scale(1.2) rotate(10deg); }
+    .station[id="network"].visible .node, .station[id="base"].visible .node { transform: translateX(-50%) scale(1.2) rotate(10deg); }
 }
-

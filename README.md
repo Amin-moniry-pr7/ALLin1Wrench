@@ -31,22 +31,29 @@ ALLin1Wrench/
 ├── index.html                 # Landing page with animated entrance
 ├── html/
 │   ├── background.html        # Animated starfield background
-│   ├── header.html           # Navigation header component
-│   ├── footer.html           # Footer with social links
-│   ├── main.html            # Skills timeline page
-│   └── main_2.html          # Services and contact page
+│   ├── header.html            # Navigation header component
+│   ├── footer.html            # Footer with social links
+│   ├── login.html             # Login and Sign Up page
+│   ├── main.html              # Skills timeline page
+│   └── main_2.html            # Services and contact page
 ├── css/
-│   ├── main.css             # Timeline and skills styling
-│   ├── main_2.css           # Services page styling
-│   ├── header.css           # Header component styles
-│   └── footer.css           # Footer component styles
+│   ├── footer.css             # Footer component styles
+│   ├── header.css             # Header component styles
+│   ├── login.css              # Login page styling
+│   ├── main.css               # Timeline and skills styling
+│   └── main_2.css             # Services page styling
 ├── js/
-│   ├── main.js              # Timeline functionality
-│   ├── main_2.js            # Semicircle navigation
-│   └── footer.js            # Footer animations
-├── pics/                    # Images and visual assets
-├── LICENSE                  # Creative Commons license
-└── README.md               # Project documentation
+│   ├── footer.js              # Footer animations
+│   ├── login.js               # Login & Sign Up functionality
+│   ├── main.js                # Timeline functionality
+│   └── main_2.js              # Semicircle navigation
+├── pics/                      # Images and visual assets
+├── .gitignore                 # Git ignore file
+├── CNAME                      # Custom domain for GitHub Pages
+├── LICENSE                    # Creative Commons license
+├── README.md                  # Project documentation
+├── robots.txt                 # Instructions for web crawlers
+└── sitemap.xml                # Sitemap for SEO
 ```
 
 ## 🛠️ Technologies Used

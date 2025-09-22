@@ -15,19 +15,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/login.css">
-
 </head>
-
 <body>
     <div id="preloader">
         <img src="../pics/Logo.png" alt="Loading..." class="preloader-logo">
     </div>
-
     <div id="header-container"></div>
-
     <iframe src="../html/background.html" class="background-iframe" title="Animated Background"></iframe>
     <div id="notification" class="notification"></div>
-
     <main>
         <div class="container" id="container">
             <div class="form-container sign-up-container">
@@ -58,7 +53,6 @@
                     <p class="mobile-switch">Already have an account? <a id="mobileSignInLink">Sign In</a></p>
                 </form>
             </div>
-
             <div class="form-container sign-in-container">
                 <form action="#">
                     <h1 class="glitch-title">Sign In</h1>
@@ -78,7 +72,6 @@
                     <p class="mobile-switch">Don't have an account? <a id="mobileSignUpLink">Sign Up</a></p>
                 </form>
             </div>
-
             <div class="overlay-container">
                 <div class="overlay">
                     <div class="overlay-panel overlay-left">
@@ -95,13 +88,10 @@
             </div>
         </div>
     </main>
-
     <script src="../js/login.js"></script>
-
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
         const firebaseConfig = typeof __firebase_config !== 'undefined'
             ? JSON.parse(__firebase_config)
             : {
@@ -112,10 +102,8 @@
                 messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
                 appId: "YOUR_APP_ID"
             };
-
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
-
         (async () => {
             try {
                 if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
@@ -129,7 +117,6 @@
                 console.error("Authentication error:", error);
             }
         })();
-
         getRedirectResult(auth)
             .then((result) => {
                 if (result) {
@@ -143,9 +130,7 @@
                    showNotification(`Error signing in: ${error.message}`, true);
                 }
             });
-
         const googleSignInButtons = document.querySelectorAll('.google-signin');
-
         googleSignInButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -154,7 +139,5 @@
             });
         });
     </script>
-
-
 </body>
 </html>

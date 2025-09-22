@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="icon" href="../pics/Logo.png" type="image/png">
     <style>
-        /* --- Preloader Styles --- */
         #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 0.75s ease, visibility 0.75s ease; }
         #preloader.fade-out { opacity: 0; visibility: hidden; }
         .loader-logo { width: 150px; height: 150px; animation: pulse-glow 2s ease-in-out infinite; }
@@ -50,7 +49,6 @@
 
     <script src="../js/main.js"></script>
     <script>
-        // --- Preloader Script ---
         window.onload = function() {
             const preloader = document.getElementById('preloader');
             if (preloader) {
