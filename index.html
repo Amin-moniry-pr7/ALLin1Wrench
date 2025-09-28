@@ -54,12 +54,21 @@
         .particle:nth-child(3n) { background: var(--dark-red); }
         .container { display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; z-index: 10; animation: containerEntrance 2s ease-out; padding: 0 15px; }
         @keyframes containerEntrance { 0% { opacity: 0; transform: scale(0.5) rotateY(180deg); } 100% { opacity: 1; transform: scale(1) rotateY(0deg); } }
-        .logo-container { margin-bottom: 40px; animation: logoFloat 3s ease-in-out infinite; position: relative; }
+        .logo-container { margin-bottom: 10px; animation: logoFloat 3s ease-in-out infinite; position: relative; }
         @keyframes logoFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
-        .logo { width: 200px; height: 200px; border-radius: 0; object-fit: cover; transition: all 0.5s ease; position: relative; filter: drop-shadow(0 0 30px rgba(220, 20, 60, 0.5)); animation: logoGlow 4s ease-in-out infinite; }
+        .logo {
+            width: 600px;
+            height: 600px;
+            border-radius: 0;
+            object-fit: cover;
+            transition: all 0.5s ease;
+            position: relative;
+            filter: drop-shadow(0 0 30px rgba(220, 20, 60, 0.5));
+            animation: logoGlow 4s ease-in-out infinite;
+        }
         @keyframes logoGlow { 0%, 100% { filter: drop-shadow(0 0 30px rgba(220, 20, 60, 0.5)) brightness(1); } 50% { filter: drop-shadow(0 0 50px rgba(220, 20, 60, 0.8)) brightness(1.2); } }
         .logo:hover { transform: scale(1.1) rotateZ(5deg); filter: drop-shadow(0 0 60px rgba(220, 20, 60, 1)); }
-        .brand-name { font-family: 'Orbitron', monospace; font-size: 4em; font-weight: 900; margin: 30px 0; display: inline-block; direction: ltr; }
+        .brand-name { font-family: 'Orbitron', monospace; font-size: 4em; font-weight: 900; margin: 5px 0; display: inline-block; direction: ltr; }
         .brand-name .letter { display: inline-block; opacity: 0; background: linear-gradient(45deg, var(--primary-white), var(--primary-red), var(--dark-red), var(--primary-white)); background-size: 400% 400%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: letterDrop 1.5s ease-out forwards, colorShift 3s ease-in-out infinite; transform-origin: center bottom; }
         .brand-name .letter.white { background: none; -webkit-text-fill-color: var(--primary-white); animation-name: letterDrop; text-shadow: 0 0 5px var(--primary-white), 0 0 10px var(--primary-red); }
         @keyframes letterDrop { 0% { opacity: 0; transform: translateY(-100px) rotateX(90deg) scale(0); } 60% { opacity: 1; transform: translateY(10px) rotateX(0deg) scale(1.1); } 100% { opacity: 1; transform: translateY(0px) rotateX(0deg) scale(1); } }
@@ -75,21 +84,27 @@
 
         @media (max-width: 768px) {
             .brand-name { font-size: 2em; }
-            .logo { width: 120px; height: 120px; }
+            .logo {
+                width: 360px;
+                height: 360px;
+            }
             .corner-frame { width: 48px; height: 48px; top: 15px; left: 15px; }
             .corner-frame.top-right { right: 15px; left: auto; }
             .corner-frame.bottom-left { bottom: 15px; top: auto; }
             .corner-frame.bottom-right { bottom: 15px; right: 15px; top: auto; left: auto; }
             .enter-button { font-size: 0.9em; padding: 12px 30px; margin-top: 30px; }
-            .credit-text { font-size: 0.8em; bottom: 50px; /* Increased bottom value */ }
+            .credit-text { font-size: 0.8em; bottom: 50px; }
         }
 
         @media (max-width: 480px) {
-            .brand-name { font-size: 1.6em; margin: 15px 0; }
-            .logo { width: 80px; height: 80px; }
-            .logo-container { margin-bottom: 20px; }
+            .brand-name { font-size: 1.6em; margin: 2px 0; }
+            .logo {
+                width: 240px;
+                height: 240px;
+            }
+            .logo-container { margin-bottom: 5px; }
             .enter-button { font-size: 0.7em; padding: 8px 20px; margin-top: 25px; }
-            .credit-text { font-size: 1em; letter-spacing: 1px; font-weight: 600; color: rgba(255, 255, 255, 0.85); bottom: 70px; /* Increased bottom value significantly */ }
+            .credit-text { font-size: 1em; letter-spacing: 1px; font-weight: 600; color: rgba(255, 255, 255, 0.85); bottom: 70px; }
             .corner-frame { width: 36px; height: 36px; top: 10px; left: 10px; }
             .corner-frame.top-right { right: 10px; left: auto; }
             .corner-frame.bottom-left { bottom: 10px; top: auto; }
@@ -138,4 +153,3 @@
     </script>
 </body>
 </html>
-
