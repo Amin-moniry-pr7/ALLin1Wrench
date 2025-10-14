@@ -12,8 +12,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (headerContainer) {
                     headerContainer.innerHTML = html;
                     const headerButtons = headerContainer.querySelectorAll('.header-button');
+
+                    // متد جدید برای پیمایش و ارسال پیام به آیفریم
+                    const navigateToIframeSection = (sectionId, e) => {
+                        e.preventDefault();
+                        const nextSection = document.getElementById('next-section');
+                        if (nextSection) {
+                            // 1. پیمایش نرم به سمت بخش آیفریم
+                            nextSection.scrollIntoView({ behavior: 'smooth' });
+
+                            // 2. ارسال پیام به آیفریم main_2.html برای تغییر داخلی بخش
+                            const iframe = nextSection.querySelector('iframe');
+                            if (iframe && iframe.contentWindow) {
+                                // تأخیر کوچکی برای اطمینان از بارگذاری کامل آیفریم
+                                setTimeout(() => {
+                                    iframe.contentWindow.postMessage({
+                                        action: 'navigateToSection',
+                                        section: sectionId
+                                    }, '*');
+                                }, 100);
+                            }
+                        }
+                    };
+
                     headerButtons.forEach(button => {
                         const buttonText = button.textContent.trim();
+
+                        // ناوبری‌های داخلی و خارجی
                         if (buttonText === 'Log in') {
                             button.addEventListener('click', () => {
                                 window.location.href = 'login.html';
@@ -24,19 +49,33 @@ document.addEventListener('DOMContentLoaded', () => {
                                 window.location.href = 'login.html?mode=signup';
                             });
                         }
-                        if (buttonText === 'Contact') {
-                            button.addEventListener('click', () => {
-                                window.location.href = 'contact.html';
+
+                        // دکمه Home: پیمایش به بالای صفحه
+                        if (buttonText === 'Home') {
+                            button.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
                             });
                         }
+
+                        // دکمه Skills: پیمایش به آیفریم و نمایش بخش 'services' (My Skills & Expertise)
                         if (buttonText === 'Skills') {
-                            button.addEventListener('click', () => {
-                                window.location.href = 'skills.html';
+                            button.addEventListener('click', (e) => {
+                                navigateToIframeSection('services', e);
                             });
                         }
+
+                        // دکمه Contact: پیمایش به آیفریم و نمایش بخش 'tools' (Connect With Me)
+                        if (buttonText === 'Contact') {
+                            button.addEventListener('click', (e) => {
+                                navigateToIframeSection('tools', e);
+                            });
+                        }
+
+                        // دکمه Tool: پیمایش به آیفریم و نمایش بخش 'info' (What I Offer)
                         if (buttonText === 'Tool') {
-                            button.addEventListener('click', () => {
-                                window.location.href = 'tools.html';
+                            button.addEventListener('click', (e) => {
+                                navigateToIframeSection('info', e);
                             });
                         }
                     });
@@ -47,6 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
     loadHeader();
+
+    // --- منطق تایم لاین (باقی کدهای موجود) ---
+
     const stations = document.querySelectorAll('.station');
     const runningAnimations = new Map();
     stations.forEach(station => {
@@ -55,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             station.style.setProperty('--station-color', color);
         }
     });
+
     function animatePercentage(element, finalPercentage) {
         if (runningAnimations.has(element)) return;
         let currentPercentage = 0;
@@ -72,6 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, speed);
         runningAnimations.set(element, interval);
     }
+
     const cardObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const percentageSpan = entry.target.querySelector('.percentage');
@@ -92,7 +136,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, { root: null, rootMargin: '0px', threshold: 0.5 });
+
     stations.forEach(station => cardObserver.observe(station));
+
     const pathElements = document.querySelectorAll('#master-path-container path');
     const pathData = [];
     pathElements.forEach(path => {
@@ -101,6 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
         path.style.strokeDashoffset = length;
         pathData.push({ element: path, length: length, station: document.getElementById(path.id.replace('path-', '')) });
     });
+
     function handlePathAnimation() {
         const wh = window.innerHeight;
         pathData.forEach(data => {
@@ -111,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
             data.element.style.strokeDashoffset = data.length * (1 - progress);
         });
     }
+
     window.addEventListener('scroll', handlePathAnimation, { passive: true });
     handlePathAnimation();
 });
