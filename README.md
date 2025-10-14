@@ -1,7 +1,7 @@
 # ALLin1Wrench Portfolio
 
 <div align="center">
-  <img src="pics/Logo.png" alt="ALLin1Wrench Logo" width="200" height="200">
+  <img src="pics/Logo.webp" alt="ALLin1Wrench Logo" width="200" height="200">
   
   [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-nc-nd/4.0/)
   [![Version](https://img.shields.io/badge/Version-7.0-red.svg)](https://github.com/Amin-moniry-pr7/allin1wrench)
