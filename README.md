@@ -20,7 +20,7 @@ ALLin1Wrench is a modern, interactive personal portfolio website showcasing the 
 - **Professional Animations**: Smooth transitions and engaging visual effects
 - **Skills Showcase**: Interactive percentage displays and visual indicators
 
-## 🚀 Live Demo
+##  Live Demo
 
 Visit the live website: [allin1wrench.ir](https://allin1wrench.ir)
 
