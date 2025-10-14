@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect With Me - ALLin1Wrench</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="icon" href="../pics/Logo.webp" type="image/webp">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+        
+        .background-iframe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            border: none;
+        }
+        
+        .header-container {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .contact-content {
+            position: relative;
+            z-index: 5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 20px;
+        }
+        
+        .container {
+            max-width: 1600px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        .section {
+            background: #ffffff;
+            border: 2px solid #dc143c;
+            border-radius: 20px;
+            padding: 4rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .section-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .section-content.alt {
+            flex-direction: row-reverse;
+        }
+        
+        .section-text {
+            flex: 1;
+        }
+        
+        .section-text h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: 3rem;
+            color: #dc143c;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
+        }
+        
+        .section-text p {
+            font-size: 1.95rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+        
+        .social-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .social-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(220, 20, 60, 0.05);
+            border: 1px solid rgba(220, 20, 60, 0.2);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .social-item:hover {
+            background: rgba(220, 20, 60, 0.1);
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(220, 20, 60, 0.2);
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+        
+        .social-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .section-media {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .section-media img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+        
+        .section-media img:hover {
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                overflow-y: hidden;
+            }
+            
+            .section-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .section-content.alt {
+                flex-direction: column;
+            }
+            
+            .section-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-text p {
+                font-size: 1rem;
+            }
+            
+            .social-item {
+                padding: 0.6rem;
+            }
+            
+            .social-icon {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .social-text {
+                font-size: 0.9rem;
+            }
+            
+            .section {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <iframe src="background.html" class="background-iframe" title="Animated Background" loading="lazy"></iframe>
+    
+    <div id="header-container" class="header-container"></div>
+    
+    <div class="contact-content">
+        <div class="container">
+            <div class="section">
+                <div class="section-content">
+                    <div class="section-text">
+                        <h2>Connect With Me</h2>
+                        <p>I'm always open to connecting with fellow creators, developers, and gamers. You can find me on my primary channels. Feel free to send a message or follow my content!</p>
+                        <div class="social-list">
+                            <div class="social-item">
+                                <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <defs>
+                                        <linearGradient id="tgGradient" x1="0" y1="0" x2="1" y2="1">
+                                            <stop offset="0%" stop-color="#2AA7E3"/>
+                                            <stop offset="100%" stop-color="#0077B5"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <circle cx="12" cy="12" r="12" fill="url(#tgGradient)"/>
+                                    <path d="M19.8 6.6c.46-.2.86.12.75.69l-2.76 13c-.11.5-.42.64-.86.4l-4.43-2.6-2.14 2.06c-.25.24-.45.44-.93.44l.31-4.68 8.03-7.7c.35-.34-.08-.52-.53-.2L6.5 12.9l-4.27-1.33c-.47-.15-.48-.47-.1-.66L19.8 6.6z" fill="#fff"/>
+                                </svg>
+                                <div class="social-text">Telegram: @adc7amin7adc</div>
+                            </div>
+                            <div class="social-item">
+                                <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <defs>
+                                        <linearGradient id="ytGradient" x1="0" y1="0" x2="1" y2="1">
+                                            <stop offset="0%" stop-color="#FF3D3D"/>
+                                            <stop offset="100%" stop-color="#C80000"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <rect x="2" y="6" width="20" height="12" rx="3" fill="url(#ytGradient)"/>
+                                    <path d="M11 15.5V8.5l6 3.5-6 3.5z" fill="#fff"/>
+                                </svg>
+                                <div class="social-text">YouTube: @adc7aminoid7adc</div>
+                            </div>
+                            <a class="social-item" href="https://github.com/Amin-moniry-pr7" target="_blank" rel="noopener noreferrer">
+                                <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path fill="#181717" d="M12 .5A11.5 11.5 0 0 0 .5 12.3c0 5.22 3.38 9.64 8.08 11.2.59.11.81-.26.81-.58 0-.29-.01-1.06-.02-2.07-3.29.74-3.99-1.62-3.99-1.62-.54-1.4-1.33-1.77-1.33-1.77-1.08-.75.08-.74.08-.74 1.19.09 1.81 1.25 1.81 1.25 1.06 1.86 2.78 1.32 3.46 1.01.11-.79.41-1.32.75-1.63-2.63-.3-5.4-1.35-5.4-6 0-1.33.47-2.41 1.24-3.26-.13-.3-.54-1.52.12-3.17 0 0 1.01-.33 3.3 1.24a11.5 11.5 0 0 1 6 0c2.29-1.57 3.3-1.24 3.3-1.24.66 1.65.25 2.87.12 3.17.77.85 1.24 1.93 1.24 3.26 0 4.66-2.78 5.69-5.42 5.99.43.37.81 1.1.81 2.22 0 1.6-.02 2.89-.02 3.28 0 .32.21.7.82.58A11.51 11.51 0 0 0 23.5 12.3 11.5 0 0 0 12 .5z"/>
+                                </svg>
+                                <div class="social-text">GitHub: Amin-moniry-pr7</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="section-media">
+                        <img src="../pics/Connect%20With%20Me.webp" alt="Connect With Me" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/600x400/000000/dc143c?text=Connect+With+Me';">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Load header
+        document.addEventListener('DOMContentLoaded', () => {
+            function loadHeader() {
+                fetch('header.html')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.text();
+                    })
+                    .then(html => {
+                        const headerContainer = document.getElementById('header-container');
+                        if (headerContainer) {
+                            headerContainer.innerHTML = html;
+                            const headerButtons = headerContainer.querySelectorAll('.header-button');
+                            headerButtons.forEach(button => {
+                                const buttonText = button.textContent.trim();
+                                if (buttonText === 'Log in') {
+                                    button.addEventListener('click', () => {
+                                        window.location.href = 'login.html';
+                                    });
+                                }
+                                if (buttonText === 'Sign up') {
+                                    button.addEventListener('click', () => {
+                                        window.location.href = 'login.html?mode=signup';
+                                    });
+                                }
+                                if (buttonText === 'Home') {
+                                    button.addEventListener('click', (e) => {
+                                        e.preventDefault();
+                                        window.location.href = 'main.html';
+                                    });
+                                }
+                                if (buttonText === 'Contact') {
+                                    button.addEventListener('click', (e) => {
+                                        e.preventDefault();
+                                        window.location.href = 'contact.html';
+                                    });
+                                }
+                                if (buttonText === 'Skills') {
+                                    button.addEventListener('click', (e) => {
+                                        e.preventDefault();
+                                        window.location.href = 'skills.html';
+                                    });
+                                }
+                                if (buttonText === 'Tool') {
+                                    button.addEventListener('click', (e) => {
+                                        e.preventDefault();
+                                        window.location.href = 'tools.html';
+                                    });
+                                }
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Failed to load header:', error);
+                    });
+            }
+            loadHeader();
+        });
+    </script>
+</body>
+</html>

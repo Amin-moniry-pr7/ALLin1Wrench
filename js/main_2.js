@@ -7,6 +7,7 @@ class SemiCircleScroll {
             { id: 'about', title: 'The Roadmap' },
             { id: 'services', title: 'My Skills & Expertise' }
         ];
+        window.semiCircleScrollInstance = this;
         this.currentSection = 0;
         this.isScrolling = false;
         this.scrollLockTime = 2000;
@@ -142,4 +143,20 @@ class SemiCircleScroll {
 
 document.addEventListener('DOMContentLoaded', () => {
     new SemiCircleScroll();
+    
+    // Listen for navigation messages from parent window
+    window.addEventListener('message', (event) => {
+        if (event.data && event.data.action === 'navigateToSection') {
+            const sectionName = event.data.section;
+            const scrollInstance = window.semiCircleScrollInstance;
+            if (scrollInstance) {
+                const sectionIndex = scrollInstance.sections.findIndex(section => section.id === sectionName);
+                if (sectionIndex !== -1) {
+                    // Navigate to the specific section
+                    scrollInstance.currentSection = sectionIndex;
+                    scrollInstance.updateDisplay();
+                }
+            }
+        }
+    });
 });

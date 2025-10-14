@@ -20,6 +20,30 @@ fetch('../html/header.html')
                    document.getElementById('container').classList.add('right-panel-active');
                 });
             }
+            if (buttonText === 'Home') {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.location.href = 'main.html';
+                });
+            }
+            if (buttonText === 'Contact') {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.location.href = 'contact.html';
+                });
+            }
+            if (buttonText === 'Skills') {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.location.href = 'skills.html';
+                });
+            }
+            if (buttonText === 'Tool') {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.location.href = 'tools.html';
+                });
+            }
         });
     })
     .catch(error => console.error('Error loading header:', error));

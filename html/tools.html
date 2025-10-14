@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Plan - ALLin1Wrench Tools</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="icon" href="../pics/Logo.webp" type="image/webp">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Orbitron', monospace;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+
+        .background-iframe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            border: none;
+        }
+
+        .header-container {
+            position: relative;
+            z-index: 10;
+        }
+
+        .tools-content {
+            position: relative;
+            z-index: 5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 140px 20px 60px;
+        }
+
+        .future-plan-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ff0844, #ffb199, #ff0844);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: gradientShift 3s ease infinite, titleFloat 3s ease-in-out infinite;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .future-plan-subtitle {
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes titleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .future-plan-content {
+            max-width: 1400px;
+            width: 100%;
+            padding: 2rem;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .tool-button {
+            position: relative;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, rgba(20, 20, 30, 0.95), rgba(40, 20, 50, 0.95));
+            border: 2px solid transparent;
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            min-height: 350px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+
+        .tool-button::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 30px;
+            padding: 2px;
+            background: linear-gradient(135deg, #ff0844, #ffb199, #ff0844, #00d4ff);
+            background-size: 300% 300%;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: borderRotate 4s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes borderRotate {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        .tool-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 8, 68, 0.4), transparent 70%);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .tool-button:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow:
+                0 25px 50px rgba(255, 8, 68, 0.3),
+                0 0 80px rgba(255, 8, 68, 0.2),
+                inset 0 0 60px rgba(255, 8, 68, 0.1);
+        }
+
+        .tool-button:hover::before {
+            opacity: 1;
+            animation-duration: 2s;
+        }
+
+        .tool-button:hover::after {
+            width: 300%;
+            height: 300%;
+        }
+
+        .tool-button:active {
+            transform: translateY(-12px) scale(0.98);
+        }
+
+        .tool-inner {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 2rem;
+        }
+
+        .tool-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 20px currentColor);
+            animation: iconFloat 3s ease-in-out infinite;
+            transition: all 0.4s ease;
+        }
+
+        .tool-button:hover .tool-icon {
+            transform: scale(1.2) rotateY(360deg);
+            filter: drop-shadow(0 0 30px currentColor);
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .tool-button:nth-child(1) .tool-icon { color: #ff0844; }
+        .tool-button:nth-child(2) .tool-icon { color: #00d4ff; }
+        .tool-button:nth-child(3) .tool-icon { color: #7c3aed; }
+
+        .tool-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            line-height: 1.2;
+        }
+
+        .tool-button:hover .tool-title {
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px currentColor;
+        }
+
+        .tool-button:nth-child(1) .tool-title { color: #ff0844; }
+        .tool-button:nth-child(2) .tool-title { color: #00d4ff; }
+        .tool-button:nth-child(3) .tool-title { color: #7c3aed; }
+
+        .tool-subtitle {
+            font-size: 1.1rem;
+            text-align: center;
+            opacity: 0.7;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .tool-button:hover .tool-subtitle {
+            opacity: 1;
+            letter-spacing: 1px;
+        }
+
+        .tool-status {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: rgba(255, 8, 68, 0.2);
+            border: 1px solid #ff0844;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 1.24rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: statusPulse 2s ease-in-out infinite;
+            z-index: 3;
+        }
+
+        @keyframes statusPulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .tool-button:hover .particles {
+            opacity: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: currentColor;
+            border-radius: 50%;
+            animation: particleFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes particleFloat {
+            0%, 100% {
+                transform: translate(0, 0) scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: translate(var(--tx), var(--ty)) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .tool-button:nth-child(1) { background: linear-gradient(135deg, rgba(40, 10, 20, 0.95), rgba(60, 15, 30, 0.95)); }
+        .tool-button:nth-child(2) { background: linear-gradient(135deg, rgba(10, 30, 40, 0.95), rgba(15, 45, 60, 0.95)); }
+        .tool-button:nth-child(3) { background: linear-gradient(135deg, rgba(30, 15, 50, 0.95), rgba(45, 20, 70, 0.95)); }
+
+        @media (max-width: 1600px) {
+            .future-plan-title {
+                font-size: 7rem;
+            }
+            .future-plan-subtitle {
+                font-size: 2rem;
+            }
+            .tools-grid {
+                gap: 4rem;
+            }
+            .tool-button {
+                min-height: 600px;
+            }
+            .tool-icon {
+                font-size: 8rem;
+            }
+            .tool-title {
+                font-size: 3rem;
+            }
+            .tool-subtitle {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .future-plan-title {
+                font-size: 6rem;
+            }
+            .future-plan-subtitle {
+                font-size: 1.8rem;
+            }
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+            .tool-button {
+                min-height: 550px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                overflow-y: hidden;
+            }
+            
+            .future-plan-title {
+                font-size: 3rem;
+                letter-spacing: 2px;
+            }
+
+            .future-plan-subtitle {
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+            }
+
+            .future-plan-content {
+                padding: 1.5rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .tool-button {
+                min-height: 300px;
+                border-radius: 30px;
+            }
+
+            .tool-icon {
+                font-size: 4rem;
+            }
+
+            .tool-title {
+                font-size: 1.8rem;
+            }
+
+            .tool-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .tool-status {
+                top: 20px;
+                right: 20px;
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .future-plan-title {
+                font-size: 3rem;
+            }
+            .future-plan-subtitle {
+                font-size: 1.2rem;
+            }
+            .tool-button {
+                min-height: 400px;
+            }
+            .tool-icon {
+                font-size: 5rem;
+            }
+            .tool-title {
+                font-size: 2rem;
+            }
+            .tool-subtitle {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <iframe src="background.html" class="background-iframe" title="Animated Background" loading="lazy"></iframe>
+
+    <div id="header-container" class="header-container"></div>
+
+    <div class="tools-content">
+        <h1 class="future-plan-title">Future Arsenal</h1>
+        <p class="future-plan-subtitle">Next-Gen Tools in Development</p>
+
+        <div class="future-plan-content">
+            <div class="tools-grid">
+                <a href="#" class="tool-button" onclick="event.preventDefault(); alert('YouTube Media Downloader - Coming Soon! 🚀');">
+                    <div class="tool-status">Coming Soon</div>
+                    <div class="particles">
+                        <div class="particle" style="--tx: 30px; --ty: -40px; left: 20%; top: 30%; animation-delay: 0s;"></div>
+                        <div class="particle" style="--tx: -25px; --ty: -35px; left: 60%; top: 40%; animation-delay: 0.5s;"></div>
+                        <div class="particle" style="--tx: 35px; --ty: 30px; left: 40%; top: 60%; animation-delay: 1s;"></div>
+                        <div class="particle" style="--tx: -30px; --ty: 25px; left: 70%; top: 50%; animation-delay: 1.5s;"></div>
+                    </div>
+                    <div class="tool-inner">
+                        <div class="tool-icon">🎬</div>
+                        <div class="tool-title">YouTube Media</div>
+                        <div class="tool-subtitle">4K Video & Audio Extraction</div>
+                    </div>
+                </a>
+
+                <a href="#" class="tool-button" onclick="event.preventDefault(); alert('Social Media Suite - Coming Soon! 🚀');">
+                    <div class="tool-status">Coming Soon</div>
+                    <div class="particles">
+                        <div class="particle" style="--tx: 30px; --ty: -40px; left: 20%; top: 30%; animation-delay: 0s;"></div>
+                        <div class="particle" style="--tx: -25px; --ty: -35px; left: 60%; top: 40%; animation-delay: 0.5s;"></div>
+                        <div class="particle" style="--tx: 35px; --ty: 30px; left: 40%; top: 60%; animation-delay: 1s;"></div>
+                        <div class="particle" style="--tx: -30px; --ty: 25px; left: 70%; top: 50%; animation-delay: 1.5s;"></div>
+                    </div>
+                    <div class="tool-inner">
+                        <div class="tool-icon">💎</div>
+                        <div class="tool-title">Social Suite</div>
+                        <div class="tool-subtitle">Instagram · Spotify · TikTok</div>
+                    </div>
+                </a>
+
+                <a href="#" class="tool-button" onclick="event.preventDefault(); alert('AI Code Architect - Coming Soon! 🚀');">
+                    <div class="tool-status">Coming Soon</div>
+                    <div class="particles">
+                        <div class="particle" style="--tx: 30px; --ty: -40px; left: 20%; top: 30%; animation-delay: 0s;"></div>
+                        <div class="particle" style="--tx: -25px; --ty: -35px; left: 60%; top: 40%; animation-delay: 0.5s;"></div>
+                        <div class="particle" style="--tx: 35px; --ty: 30px; left: 40%; top: 60%; animation-delay: 1s;"></div>
+                        <div class="particle" style="--tx: -30px; --ty: 25px; left: 70%; top: 50%; animation-delay: 1.5s;"></div>
+                    </div>
+                    <div class="tool-inner">
+                        <div class="tool-icon">⚡</div>
+                        <div class="tool-title">AI Architect</div>
+                        <div class="tool-subtitle">Neural Code Generation</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load header
+        document.addEventListener('DOMContentLoaded', () => {
+            function loadHeader() {
+                fetch('header.html')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.text();
+                    })
+                    .then(html => {
+                        const headerContainer = document.getElementById('header-container');
+                        if (headerContainer) {
+                            headerContainer.innerHTML = html;
+                            const headerButtons = headerContainer.querySelectorAll('.header-button');
+                            headerButtons.forEach(button => {
+                                const buttonText = button.textContent.trim();
+                                if (buttonText === 'Log in') {
+                                    button.addEventListener('click', () => {
+                                        window.location.href = 'login.html';
+                                    });
+                                }
+                                if (buttonText === 'Sign up') {
+                                    button.addEventListener('click', () => {
+                                        window.location.href = 'login.html?mode=signup';
+                                    });
+                                }
+                                if (buttonText === 'Home') {
+                                    button.addEventListener('click', () => {
+                                        window.location.href = 'main.html';
+                                    });
+                                }
+                                if (buttonText === 'Contact') {
+                                    button.addEventListener('click', () => {
+                                        window.location.href = 'main.html#contact';
+                                    });
+                                }
+                                if (buttonText === 'Skills') {
+                                    button.addEventListener('click', () => {
+                                        window.location.href = 'main.html#skills';
+                                    });
+                                }
+                                if (buttonText === 'Tool') {
+                                    button.addEventListener('click', () => {
+                                        window.location.href = 'tools.html';
+                                    });
+                                }
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Failed to load header:', error);
+                    });
+            }
+            loadHeader();
+        });
+    </script>
+</body>
+</html>

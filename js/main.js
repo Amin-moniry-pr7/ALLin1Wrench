@@ -24,6 +24,21 @@ document.addEventListener('DOMContentLoaded', () => {
                                 window.location.href = 'login.html?mode=signup';
                             });
                         }
+                        if (buttonText === 'Contact') {
+                            button.addEventListener('click', () => {
+                                window.location.href = 'contact.html';
+                            });
+                        }
+                        if (buttonText === 'Skills') {
+                            button.addEventListener('click', () => {
+                                window.location.href = 'skills.html';
+                            });
+                        }
+                        if (buttonText === 'Tool') {
+                            button.addEventListener('click', () => {
+                                window.location.href = 'tools.html';
+                            });
+                        }
                     });
                 }
             })
