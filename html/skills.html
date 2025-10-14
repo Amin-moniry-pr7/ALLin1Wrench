@@ -10,6 +10,35 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="icon" href="../pics/Logo.webp" type="image/webp">
     <style>
+        /* CSS برای حل مشکل پرلودر و انیمیشن */
+        /* --- Preloader Styles --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.75s ease, visibility 0.75s ease;
+        }
+        #preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader-logo {
+            width: 150px;
+            height: 150px;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(220, 20, 60, 0.4)); }
+            50% { transform: scale(1.1); filter: drop-shadow(0 0 30px rgba(220, 20, 60, 0.8)); }
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -45,6 +74,15 @@
             padding: 120px 20px 20px;
         }
 
+        /* --- انیمیشن جدید رنگ‌های متحرک و نامنظم (مار/رنگ پاشیده) --- */
+        @keyframes organic-move {
+            0% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(-100px, 60px) scale(1.2) rotate(10deg); }
+            50% { transform: translate(40px, -80px) scale(0.85) rotate(-6deg); }
+            75% { transform: translate(-60px, 20px) scale(1.15) rotate(4deg); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
         .container {
             max-width: 2304px;
             width: 100%;
@@ -52,12 +90,50 @@
         }
 
         .section {
-            background: #ffffff;
+            /* تغییر پس‌زمینه به شفافیت کم برای دیدن انیمیشن زیرین */
+            background: rgba(255, 255, 255, 0.9);
             border: 2px solid #dc143c;
             border-radius: 20px;
             padding: 2.56rem;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            /* تنظیمات برای انیمیشن جدید */
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-out 0.8s forwards;
         }
+
+        /* تعریف لایه انیمیشن::before */
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            right: -100px;
+            bottom: -100px;
+            /* ایجاد لکه‌های رنگی با گرادیان‌های شعاعی (صورتی ملایم) */
+            background: radial-gradient(circle at 10% 40%, rgba(255, 153, 204, 0.8) 0%, transparent 30%), /* Soft Pink */
+                        radial-gradient(circle at 90% 20%, rgba(255, 102, 178, 0.7) 0%, transparent 30%), /* Rosy Pink */
+                        radial-gradient(circle at 30% 90%, rgba(255, 51, 153, 0.6) 0%, transparent 35%), /* Hot Pink */
+                        radial-gradient(circle at 60% 10%, rgba(255, 182, 193, 0.7) 0%, transparent 25%); /* Light Pink */
+            background-size: 400% 400%; /* اندازه بزرگ برای پوشش کل منطقه */
+            animation: organic-move 6s ease-in-out infinite alternate; /* سرعت ۳ برابر (۱۸/۳=۶) */
+            z-index: -1; /* قرارگیری در پشت محتوای اصلی */
+            opacity: 0.8; /* کمی شفافیت بیشتر برای حس نرمی */
+            filter: blur(60px); /* بلور بیشتر برای سیال بودن رنگ */
+            border-radius: 20px;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* --- پایان انیمیشن جدید --- */
 
         .section-content {
             display: flex;
@@ -75,14 +151,14 @@
 
         .section-text h2 {
             font-family: 'Orbitron', monospace;
-            font-size: 2.76rem;
+            font-size: 3.8rem;
+            font-weight: 900;
             color: #dc143c;
             margin-bottom: 1.84rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
         }
-        
+
         .section-text p {
             font-size: 1.794rem;
             line-height: 1.8;
@@ -100,7 +176,7 @@
             gap: 0.92rem;
             margin-top: 1.84rem;
         }
-        
+
         .skill-pill {
             display: inline-flex;
             align-items: center;
@@ -114,13 +190,13 @@
             color: #333;
             transition: all 0.3s ease;
         }
-        
+
         .skill-pill:hover {
             background: rgba(220, 20, 60, 0.2);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(220, 20, 60, 0.3);
         }
-        
+
         .skill-pill .emoji {
             font-size: 1.104rem;
         }
@@ -139,7 +215,7 @@
             align-items: center;
             gap: 1rem;
         }
-        
+
         .section-media img {
             max-width: 64.8%;
             height: auto;
@@ -149,11 +225,11 @@
             border: 3px solid #dc143c;
             position: relative;
         }
-        
+
         .section-media img:hover {
             transform: scale(1.05);
         }
-        
+
         .section-media::before {
             content: '✦';
             position: absolute;
@@ -165,7 +241,7 @@
             text-shadow: 0 0 15px rgba(220, 20, 60, 0.8);
             animation: sparkle 2s ease-in-out infinite;
         }
-        
+
         .section-media::after {
             content: '✦';
             position: absolute;
@@ -177,7 +253,7 @@
             text-shadow: 0 0 15px rgba(220, 20, 60, 0.8);
             animation: sparkle 2s ease-in-out infinite 1s;
         }
-        
+
         .image-decoration {
             position: absolute;
             top: 50%;
@@ -190,13 +266,13 @@
             box-shadow: 0 0 20px rgba(220, 20, 60, 0.8);
             animation: pulse-glow 1.5s ease-in-out infinite;
         }
-        
+
         .image-decoration.right {
             left: auto;
             right: -25px;
             animation: pulse-glow 1.5s ease-in-out infinite 0.5s;
         }
-        
+
         .image-decoration::before {
             content: '';
             position: absolute;
@@ -209,7 +285,7 @@
             border-radius: 50%;
             box-shadow: 0 0 10px rgba(255, 107, 107, 0.6);
         }
-        
+
         .image-decoration::after {
             content: '';
             position: absolute;
@@ -222,24 +298,24 @@
             border-radius: 50%;
             box-shadow: 0 0 10px rgba(255, 107, 107, 0.6);
         }
-        
+
         @keyframes sparkle {
-            0%, 100% { 
+            0%, 100% {
                 transform: translateX(-50%) scale(1) rotate(0deg);
                 opacity: 1;
             }
-            50% { 
+            50% {
                 transform: translateX(-50%) scale(1.2) rotate(180deg);
                 opacity: 0.7;
             }
         }
-        
+
         @keyframes pulse-glow {
-            0%, 100% { 
+            0%, 100% {
                 transform: translateY(-50%) scale(1);
                 box-shadow: 0 0 20px rgba(220, 20, 60, 0.8);
             }
-            50% { 
+            50% {
                 transform: translateY(-50%) scale(1.3);
                 box-shadow: 0 0 30px rgba(220, 20, 60, 1);
             }
@@ -249,46 +325,46 @@
             body {
                 overflow-y: hidden;
             }
-            
+
             .container {
                 max-width: 95%;
             }
-            
+
             .section {
                 padding: 1.5rem;
             }
-            
+
             .section-content {
                 flex-direction: column;
                 gap: 1.5rem;
             }
-            
+
             .section-content.alt {
                 flex-direction: column;
             }
-            
+
             .section-text h2 {
                 font-size: 1.8rem;
             }
-            
+
             .section-text p {
                 font-size: 1rem;
             }
-            
+
             .skills-logos {
                 justify-content: center;
                 margin-top: 1rem;
             }
-            
+
             .skill-pill {
                 font-size: 0.8rem;
                 padding: 0.5rem 1rem;
             }
-            
+
             .section-media img {
                 max-width: 80%;
             }
-            
+
             .image-decoration {
                 display: none;
             }
@@ -296,6 +372,9 @@
     </style>
 </head>
 <body>
+    <div id="preloader">
+        <img src="../pics/Logo.webp" alt="Loading..." class="loader-logo" onerror="this.style.display='none'">
+    </div>
     <iframe src="background.html" class="background-iframe" title="Animated Background" loading="lazy"></iframe>
 
     <div id="header-container" class="header-container"></div>
@@ -344,6 +423,14 @@
     </div>
 
     <script>
+        // --- Preloader Script ---
+        window.onload = function() {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.classList.add('fade-out');
+            }
+        };
+
         // Load header
         document.addEventListener('DOMContentLoaded', () => {
             function loadHeader() {

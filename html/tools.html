@@ -10,6 +10,37 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="icon" href="../pics/Logo.webp" type="image/webp">
     <style>
+        /* CSS برای حل مشکل پرلودر و انیمیشن */
+        /* --- Preloader Styles --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.75s ease, visibility 0.75s ease;
+        }
+        #preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader-logo {
+            width: 150px;
+            height: 150px;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(220, 20, 60, 0.4)); }
+            50% { transform: scale(1.1); filter: drop-shadow(0 0 30px rgba(220, 20, 60, 0.8)); }
+        }
+        /* پایان Preloader Styles */
+
+
         * {
             box-sizing: border-box;
         }
@@ -48,7 +79,19 @@
             align-items: center;
             justify-content: center;
             padding: 140px 20px 60px;
+            /* انیمیشن ورود نرم */
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-out 0.8s forwards;
         }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* پایان انیمیشن ورود نرم */
+
 
         .future-plan-title {
             font-size: 4.5rem;
@@ -341,7 +384,7 @@
             body {
                 overflow-y: hidden;
             }
-            
+
             .future-plan-title {
                 font-size: 3rem;
                 letter-spacing: 2px;
@@ -409,6 +452,9 @@
     </style>
 </head>
 <body>
+    <div id="preloader">
+        <img src="../pics/Logo.webp" alt="Loading..." class="loader-logo" onerror="this.style.display='none'">
+    </div>
     <iframe src="background.html" class="background-iframe" title="Animated Background" loading="lazy"></iframe>
 
     <div id="header-container" class="header-container"></div>
@@ -468,6 +514,14 @@
     </div>
 
     <script>
+        // --- Preloader Script ---
+        window.onload = function() {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.classList.add('fade-out');
+            }
+        };
+
         // Load header
         document.addEventListener('DOMContentLoaded', () => {
             function loadHeader() {
@@ -502,12 +556,12 @@
                                 }
                                 if (buttonText === 'Contact') {
                                     button.addEventListener('click', () => {
-                                        window.location.href = 'main.html#contact';
+                                        window.location.href = 'contact.html';
                                     });
                                 }
                                 if (buttonText === 'Skills') {
                                     button.addEventListener('click', () => {
-                                        window.location.href = 'main.html#skills';
+                                        window.location.href = 'skills.html';
                                     });
                                 }
                                 if (buttonText === 'Tool') {
