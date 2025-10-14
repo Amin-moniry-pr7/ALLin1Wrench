@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amin Moniry | My Journey & Skills</title>
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="icon" href="../pics/Logo.png" type="image/png">
+    <link rel="icon" href="../pics/Logo.webp" type="image/png">
+    <link rel="shortcut icon" href="../pics/Logo.webp" type="image/png">
     <style>
         #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 0.75s ease, visibility 0.75s ease; }
         #preloader.fade-out { opacity: 0; visibility: hidden; }
@@ -15,9 +16,9 @@
 </head>
 <body>
     <div id="preloader">
-        <img src="../pics/Logo.png" alt="Loading..." class="loader-logo" onerror="this.style.display='none'">
+        <img src="../pics/Logo.webp" alt="Loading..." class="loader-logo" onerror="this.style.display='none'">
     </div>
-    <iframe src="background.html" class="background-iframe" title="Animated Background"></iframe>
+    <iframe src="background.html" class="background-iframe" title="Animated Background" loading="lazy"></iframe>
 
     <div id="header-container"></div>
 
@@ -44,8 +45,8 @@
         <div class="station" id="network" data-path-id="path-network" data-station-color="var(--color-network)"><svg class="node" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><div class="card"><h2>Computer Networking <span class="percentage" data-percentage="99">0%</span></h2><p>Strong expertise in networking concepts and practices, from configuration and troubleshooting to advanced routing, switching, and security. Skilled in designing and maintaining secure, reliable, and high-performance network infrastructures.</p></div></div>
     </div>
     <div class="section-separator"><span class="separator-star">✮</span></div>
-    <div id="next-section" style="position:relative; width:100vw; height:100vh;"><iframe src="main_2.html" title="Next Section" style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"></iframe></div>
-    <div id="footer-container" style="position:relative; width:100vw; height:100vh;"><iframe src="footer.html" title="Footer" style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"></iframe></div>
+    <div id="next-section" style="position:relative; width:100vw; height:100vh;"><iframe src="main_2.html" title="Next Section" style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;" loading="lazy"></iframe></div>
+    <div id="footer-container" style="position:relative; width:100vw; height:100vh;"><iframe src="footer.html" title="Footer" style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;" loading="lazy"></iframe></div>
 
     <script src="../js/main.js"></script>
     <script>

@@ -13,15 +13,16 @@
     <meta property="og:url" content="https://allin1wrench.ir/">
     <meta property="og:title" content="Allin1Wrench">
     <meta property="og:description" content="Amin Moniry's personal portfolio website, showcasing skills and projects in web development, AI, networking, and more.">
-    <meta property="og:image" content="https://allin1wrench.ir/pics/Logo.png">
+    <meta property="og:image" content="https://allin1wrench.ir/pics/Logo.webp">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://allin1wrench.ir/">
     <meta property="twitter:title" content="Allin1Wrench">
     <meta property="twitter:description" content="Amin Moniry's personal portfolio website, showcasing skills and projects in web development, AI, networking, and more.">
-    <meta property="twitter:image" content="https://allin1wrench.ir/pics/Logo.png">
+    <meta property="twitter:image" content="https://allin1wrench.ir/pics/Logo.webp">
 
-    <link rel="icon" href="pics/Logo.png" type="image/png">
+    <link rel="icon" href="pics/Logo.webp" type="image/png">
+    <link rel="shortcut icon" href="pics/Logo.webp" type="image/png">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
@@ -114,11 +115,11 @@
 </head>
 <body>
     <div id="preloader">
-        <img src="pics/Logo.png" alt="Amin Moniry's Logo" class="logo" onerror="this.onerror=null; this.src='https://placehold.co/200x200/000000/dc143c?text=Logo';">
+        <img src="pics/Logo.webp" alt="Amin Moniry's Logo" class="logo" onerror="this.onerror=null; this.src='https://placehold.co/200x200/000000/dc143c?text=Logo';">
     </div>
 
     <div id="site-content" style="visibility: hidden;">
-        <iframe src="html/background.html" class="background-iframe" title="Animated Background"></iframe>
+        <iframe src="html/background.html" class="background-iframe" title="Animated Background" loading="lazy"></iframe>
         <div class="corner-frame top-left"></div>
         <div class="corner-frame top-right"></div>
         <div class="corner-frame bottom-left"></div>
@@ -126,7 +127,7 @@
         <div class="particles" id="particles"></div>
         <div class="container">
             <div class="logo-container">
-                <img src="pics/Logo.png" alt="Amin Moniry's Logo" class="logo" onerror="this.onerror=null; this.src='https://placehold.co/200x200/000000/dc143c?text=Logo';">
+                <img src="pics/Logo.webp" alt="Amin Moniry's Logo" class="logo" onerror="this.onerror=null; this.src='https://placehold.co/200x200/000000/dc143c?text=Logo';">
             </div>
             <h1 class="brand-name">
                 <span class="letter">A</span><span class="letter white">L</span><span class="letter white">L</span><span class="letter">i</span><span class="letter">n</span><span class="letter">1</span><span class="letter white">W</span><span class="letter">r</span><span class="letter">e</span><span class="letter">n</span><span class="letter">c</span><span class="letter">h</span>
@@ -145,7 +146,7 @@
             siteContent.style.visibility = 'visible';
 
             // --- SCRIPT FOR PARTICLES ---
-            function createParticles() { const particlesContainer = document.getElementById('particles'); if (!particlesContainer) return; const particleCount = 100; for (let i = 0; i < particleCount; i++) { createParticle(particlesContainer); } }
+            function createParticles() { const particlesContainer = document.getElementById('particles'); if (!particlesContainer) return; const particleCount = 50; for (let i = 0; i < particleCount; i++) { createParticle(particlesContainer); } }
             function createParticle(container) { const particle = document.createElement('div'); particle.className = 'particle'; const size = Math.random() * 4 + 1; const x = Math.random() * window.innerWidth; const y = Math.random() * window.innerHeight; const duration = Math.random() * 20 + 10; const delay = Math.random() * 5; particle.style.width = `${size}px`; particle.style.height = `${size}px`; particle.style.left = `${x}px`; particle.style.top = `${y}px`; const randomX = Math.random() * 200 - 100; const animationName = `particleFloat_${Math.round(Math.random() * 10000)}`; const keyframes = `@keyframes ${animationName} { 0% { transform: translate(0, 0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translate(${randomX}px, -100vh) rotate(360deg); opacity: 0; } }`; try { const styleSheet = document.styleSheets[0]; styleSheet.insertRule(keyframes, styleSheet.cssRules.length); particle.style.animation = `${animationName} ${duration}s linear infinite ${delay}s`; container.appendChild(particle); setTimeout(() => { particle.remove(); createParticle(container); }, (duration + delay) * 1000); } catch (e) { console.warn("Could not insert CSS rule for particle animation.", e); } }
             createParticles();
             document.addEventListener('mousemove', (e) => { if (Math.random() < 0.1) { const trail = document.createElement('div'); trail.style.position = 'absolute'; trail.style.left = e.clientX + 'px'; trail.style.top = e.clientY + 'px'; trail.style.width = '4px'; trail.style.height = '4px'; trail.style.background = 'var(--primary-red)'; trail.style.borderRadius = '50%'; trail.style.pointerEvents = 'none'; trail.style.zIndex = '5'; const trailKeyframes = `@keyframes trailFade { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(0); } }`; const styleEl = document.createElement('style'); styleEl.innerHTML = trailKeyframes; document.head.appendChild(styleEl); trail.style.animation = 'trailFade 1s ease-out forwards'; document.body.appendChild(trail); setTimeout(() => { trail.remove(); styleEl.remove(); }, 1000); } });

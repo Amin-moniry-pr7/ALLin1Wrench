@@ -29,7 +29,10 @@ body { font-family: 'Poppins', sans-serif; background-color: transparent; color:
 .skills-logos { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
 .skill-pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; background: rgba(220, 20, 60, 0.08); border: 1px solid rgba(220, 20, 60, 0.25); box-shadow: 0 6px 18px rgba(220, 20, 60, 0.12), inset 0 1px 0 rgba(255,255,255,0.6); color: #1f1f1f; font-weight: 600; letter-spacing: 0.2px; }
 .skill-pill .emoji { font-size: 1.1rem; }
-@keyframes rotate { from { transform: translateX(-50%) translateY(-50%) rotate(0deg); } to { transform: translateX(-50%) translateY(-50%) rotate(360deg); } }
+@keyframes rotate {
+    from { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
+    to { transform: translateX(-50%) translateY(-50%) rotate(360deg); }
+}
 .semicircle-nav.rotating { animation: rotate 1s ease-out; }
 ::-webkit-scrollbar { display: none; }
 html, body { -ms-overflow-style: none; scrollbar-width: none; }
