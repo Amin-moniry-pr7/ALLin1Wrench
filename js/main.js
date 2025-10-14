@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     function loadHeader() {
+        // بارگذاری Header از فایل header.html
         fetch('header.html')
             .then(response => {
                 if (!response.ok) {
@@ -13,32 +14,41 @@ document.addEventListener('DOMContentLoaded', () => {
                     headerContainer.innerHTML = html;
                     const headerButtons = headerContainer.querySelectorAll('.header-button');
 
-                    // متد جدید برای پیمایش و ارسال پیام به آیفریم
-                    const navigateToIframeSection = (sectionId, e) => {
-                        e.preventDefault();
-                        const nextSection = document.getElementById('next-section');
-                        if (nextSection) {
-                            // 1. پیمایش نرم به سمت بخش آیفریم
-                            nextSection.scrollIntoView({ behavior: 'smooth' });
-
-                            // 2. ارسال پیام به آیفریم main_2.html برای تغییر داخلی بخش
-                            const iframe = nextSection.querySelector('iframe');
-                            if (iframe && iframe.contentWindow) {
-                                // تأخیر کوچکی برای اطمینان از بارگذاری کامل آیفریم
-                                setTimeout(() => {
-                                    iframe.contentWindow.postMessage({
-                                        action: 'navigateToSection',
-                                        section: sectionId
-                                    }, '*');
-                                }, 100);
-                            }
-                        }
-                    };
-
                     headerButtons.forEach(button => {
                         const buttonText = button.textContent.trim();
 
-                        // ناوبری‌های داخلی و خارجی
+                        // منطق ناوبری برای دکمه‌های Header
+
+                        // 1. Home: پیمایش به بالای صفحه اصلی
+                        if (buttonText === 'Home') {
+                            button.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            });
+                        }
+
+                        // 2. Skills: هدایت به صفحه skills.html
+                        if (buttonText === 'Skills') {
+                            button.addEventListener('click', () => {
+                                window.location.href = 'skills.html';
+                            });
+                        }
+
+                        // 3. Contact: هدایت به صفحه contact.html
+                        if (buttonText === 'Contact') {
+                            button.addEventListener('click', () => {
+                                window.location.href = 'contact.html';
+                            });
+                        }
+
+                        // 4. Tool: هدایت به صفحه tools.html
+                        if (buttonText === 'Tool') {
+                            button.addEventListener('click', () => {
+                                window.location.href = 'tools.html';
+                            });
+                        }
+
+                        // 5. Login/Signup: هدایت به صفحه login.html
                         if (buttonText === 'Log in') {
                             button.addEventListener('click', () => {
                                 window.location.href = 'login.html';
@@ -47,35 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (buttonText === 'Sign up') {
                             button.addEventListener('click', () => {
                                 window.location.href = 'login.html?mode=signup';
-                            });
-                        }
-
-                        // دکمه Home: پیمایش به بالای صفحه
-                        if (buttonText === 'Home') {
-                            button.addEventListener('click', (e) => {
-                                e.preventDefault();
-                                window.scrollTo({ top: 0, behavior: 'smooth' });
-                            });
-                        }
-
-                        // دکمه Skills: پیمایش به آیفریم و نمایش بخش 'services' (My Skills & Expertise)
-                        if (buttonText === 'Skills') {
-                            button.addEventListener('click', (e) => {
-                                navigateToIframeSection('services', e);
-                            });
-                        }
-
-                        // دکمه Contact: پیمایش به آیفریم و نمایش بخش 'tools' (Connect With Me)
-                        if (buttonText === 'Contact') {
-                            button.addEventListener('click', (e) => {
-                                navigateToIframeSection('tools', e);
-                            });
-                        }
-
-                        // دکمه Tool: پیمایش به آیفریم و نمایش بخش 'info' (What I Offer)
-                        if (buttonText === 'Tool') {
-                            button.addEventListener('click', (e) => {
-                                navigateToIframeSection('info', e);
                             });
                         }
                     });
