@@ -233,33 +233,3 @@ This is a personal portfolio project. While direct contributions aren't accepted
 </div>
 
 
-
-
-<!ثثDOCTYPE html>
-<یثhtml lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>سرور شخصی من</title>
-    <style>
-        body { font-family: Tahoma, sans-serif; background-color: #f4f4f4; text-align: center; padding: 50px; }
-        .container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 600px; margin: auto; }
-        .banner { background-color: #d32f2f; color: white; padding: 20px; font-size: 24px; border-radius: 5px; margin-bottom: 20px; }
-        .info { text-align: right; line-height: 1.8; }
-        h1 { color: #333; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="banner">⚠️ این یک سرور خصوصی است ⚠️</div>
-        <h1>خوش آمدید به سرور محلی</h1>
-        <hr>
-        <div class="info">
-            <p><strong>وضعیت سرور:</strong> ✅ فعال (Online)</p>
-            <p><strong>سیستم عامل:</strong> اوبونتو لینوکس</p>
-            <p><strong>وب سرور:</strong> Apache2</p>
-            <p><strong>مدیر سیستم:</strong> ادمین شبکه</p>
-        </div>
-    </div>
-</body>
-</ثhtml>
-
