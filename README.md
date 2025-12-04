@@ -235,8 +235,8 @@ This is a personal portfolio project. While direct contributions aren't accepted
 
 
 
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<!ثثDOCTYPE html>
+<یثhtml lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <title>سرور شخصی من</title>
@@ -261,4 +261,5 @@ This is a personal portfolio project. While direct contributions aren't accepted
         </div>
     </div>
 </body>
-</html>
+</ثhtml>
+
